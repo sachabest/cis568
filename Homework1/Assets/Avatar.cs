@@ -14,32 +14,52 @@ public class Avatar : MonoBehaviour {
 
 	public KeyCode Pop;
 
-	public WheelCollider[] WHeelColliders;
+	public CapsuleCollider[] WheelColliders;
+    public BoxCollider PersonCollider;
 
     public GravityChange CurrentGravityChange = GravityChange.None;
 
-	private float _maxTorque = 5000f;
-    private float _equalityTolerance = 10f;
-    private float _rotationModifier = 0.5f;
+    private float _rotationModifier = 5f;
+    private float _aerialRotationModifier = 1f;
+    private float _speedModifier = 0.0001f;
+    private float _speed = 0.0f;
+    private float _decay = 0.01f;
+    private float _decayAirtime = 0.005f;
+    private float _previousAccel = 0.0f; // used for compound acceleration
+    private long _framesMaxAccel = 0; // used for compound acceleration
+    private float _groundDistance;
+
+    private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
+
 	// Use this for initialization
 	void Start () {
+        _groundDistance = WheelColliders[0].bounds.extents.y;
+        _initialPosition = transform.position;
+        _initialRotation = transform.rotation;
 	}
 	
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
     {
         Quaternion fromAngle = transform.rotation;
         Quaternion toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
-        Debug.Log(transform.rotation);
         for (float t = 0f ; t < 1f ; t += Time.deltaTime / inTime)
         {
             transform.rotation = Quaternion.Lerp(fromAngle, toAngle, t);
-            Debug.Log(transform.rotation);
             yield return null;
         }
     }
 
+    bool isGrounded() {
+        return Physics.Raycast(WheelColliders[0].transform.position, -Vector3.up, _groundDistance + 0.1f);
+    }
+
+    bool isDead() {
+        Debug.Log(PersonCollider.transform.position);
+        return Mathf.Abs(PersonCollider.transform.position.x) < 0.1;
+    }
+
     void Update() {
-        Vector3 currentRotation = transform.rotation.eulerAngles;
         switch (CurrentGravityChange) {
             case GravityChange.X:
                 StartCoroutine(RotateMe(new Vector3(180f, 0f, 0f), _rotationModifier));
@@ -63,22 +83,36 @@ public class Avatar : MonoBehaviour {
     }
 
     void FixedUpdate() {
+
+        // death detection - useless to put in oncollider enter bc constant collisions
+        if (isDead()) {
+            transform.position = _initialPosition;
+            transform.rotation = _initialRotation;
+            _speed = 0;
+            return;
+        }
+
         float steer = Input.GetAxis("Horizontal");
         float accelerate = Input.GetAxis("Vertical");
+        _speed -= _decay * _speed;
 
-        float finalAngle = steer * 5f;
-        WHeelColliders[0].steerAngle = finalAngle;
-        WHeelColliders[1].steerAngle = finalAngle;
+        if (isGrounded()) {
+            if (accelerate == _previousAccel) {
+                // compound this if at max
+                _framesMaxAccel += 1;
+                _speed += _framesMaxAccel * accelerate * _speedModifier;
+            } else {
+                _framesMaxAccel = 0;
+                _speed += accelerate * _speedModifier;
+            }
 
-        if (steer != 0) {
-            return;
-            // cant speed up while turning
+            transform.Rotate(0, steer * _rotationModifier, 0);
+        } else {
+            // airtime deceleration
+            _speed -= _decayAirtime * _speed;
+            transform.Rotate(0, steer * _aerialRotationModifier, 0);
         }
-
-        for(int i = 0; i < 4; i++)
-        {
-            WHeelColliders[i].motorTorque = accelerate * _maxTorque;
-        }
+        transform.Translate(Vector3.forward * _speed);
+        _previousAccel = accelerate;
     }
-
 }
