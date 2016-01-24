@@ -19,8 +19,11 @@ public class Avatar : MonoBehaviour {
 
     public GravityChange CurrentGravityChange = GravityChange.None;
 
-    private float _rotationModifier = 5f;
-    private float _aerialRotationModifier = 1f;
+    public SmoothFollow CameraFollower;
+
+    private float _gravityRotationModifier = 0.0f;
+    private float _rotationModifier = 2f;
+    private float _aerialRotationModifier = 10f;
     private float _speedModifier = 0.0001f;
     private float _speed = 0.0f;
     private float _decay = 0.01f;
@@ -55,26 +58,25 @@ public class Avatar : MonoBehaviour {
     }
 
     bool isDead() {
-        Debug.Log(PersonCollider.transform.position);
-        return Mathf.Abs(PersonCollider.transform.position.x) < 0.1;
+        return Mathf.Abs(PersonCollider.transform.position.y) < 0.2;
     }
 
     void Update() {
         switch (CurrentGravityChange) {
             case GravityChange.X:
-                StartCoroutine(RotateMe(new Vector3(180f, 0f, 0f), _rotationModifier));
+                StartCoroutine(RotateMe(new Vector3(180f, 0f, 0f), _gravityRotationModifier));
                 CurrentGravityChange = GravityChange.None;
                 break;
             case GravityChange.nX:
-                StartCoroutine(RotateMe(new Vector3(0f, 0f, 0f), _rotationModifier));
+                StartCoroutine(RotateMe(new Vector3(0f, 0f, 0f), _gravityRotationModifier));
                 CurrentGravityChange = GravityChange.None;
                 break;
             case GravityChange.Y:
-                StartCoroutine(RotateMe(new Vector3(0f, 0f, -90f), _rotationModifier));
+                StartCoroutine(RotateMe(new Vector3(0f, 0f, -90f), _gravityRotationModifier));
                 CurrentGravityChange = GravityChange.None;
                 break;
             case GravityChange.nY:
-                StartCoroutine(RotateMe(new Vector3(0f, 0f, 90f), _rotationModifier));
+                StartCoroutine(RotateMe(new Vector3(0f, 0f, 90f), _gravityRotationModifier));
                 CurrentGravityChange = GravityChange.None;
                 break;
             default:
@@ -97,6 +99,7 @@ public class Avatar : MonoBehaviour {
         _speed -= _decay * _speed;
 
         if (isGrounded()) {
+        	CameraFollower.IgnoreLateral = false;
             if (accelerate == _previousAccel) {
                 // compound this if at max
                 _framesMaxAccel += 1;
@@ -108,8 +111,10 @@ public class Avatar : MonoBehaviour {
 
             transform.Rotate(0, steer * _rotationModifier, 0);
         } else {
+        	CameraFollower.IgnoreLateral = true;
             // airtime deceleration
             _speed -= _decayAirtime * _speed;
+
             transform.Rotate(0, steer * _aerialRotationModifier, 0);
         }
         transform.Translate(Vector3.forward * _speed);

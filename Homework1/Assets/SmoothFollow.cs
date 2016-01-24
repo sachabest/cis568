@@ -24,6 +24,9 @@ public class SmoothFollow : MonoBehaviour {
 	public float heightDamping = 2.0f;
 	public float rotationDamping = 3.0f;
 
+	public bool IgnoreLateral = false;
+	private float _previousYRotation = 0.0f;
+
 	void LateUpdate () {
 		// Early out if we don't have a target
 		if (!target) {
@@ -32,6 +35,13 @@ public class SmoothFollow : MonoBehaviour {
 		
 		// Calculate the current rotation angles
 		float wantedRotationAngle = target.eulerAngles.y;
+		// if (!IgnoreLateral) {
+		// 	// lock y rotation
+		// 	wantedRotationAngle = _previousYRotation;
+		// } else {
+			_previousYRotation = target.eulerAngles.y;
+		// }
+		
 		float wantedHeight = target.position.y + height;
 			
 		float currentRotationAngle = transform.eulerAngles.y;
@@ -57,5 +67,6 @@ public class SmoothFollow : MonoBehaviour {
 		// Always look at the target
 		// adjust target up by a certain amount to pan camera
 		transform.LookAt(target);
+
 	}
 }
