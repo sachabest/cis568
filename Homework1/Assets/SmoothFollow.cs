@@ -35,12 +35,13 @@ public class SmoothFollow : MonoBehaviour {
 		
 		// Calculate the current rotation angles
 		float wantedRotationAngle = target.eulerAngles.y;
-		// if (!IgnoreLateral) {
-		// 	// lock y rotation
-		// 	wantedRotationAngle = _previousYRotation;
-		// } else {
+		 if (IgnoreLateral) {
+		 	// lock y rotation
+		 	Debug.Log("ignoring lateral movement");
+		 	wantedRotationAngle = _previousYRotation;
+		 } else {
 			_previousYRotation = target.eulerAngles.y;
-		// }
+		 }
 		
 		float wantedHeight = target.position.y + height;
 			
