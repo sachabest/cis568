@@ -26,12 +26,14 @@ public class Avatar : MonoBehaviour {
 
     public GameManager GameManager;
 
+    public GameObject SkeletonParent;
+
     private float _pedalStrength = 5.0f;
 
     private float _gravityRotationModifier = 0.0f;
     private float _rotationModifier = 50f;
     private float _currentOrientation = 0f;
-    private float _aerialRotationModifier = 90f;
+    private float _aerialRotationModifier = 200f;
     private Vector3 _curNormal = Vector3.up; // smoothed terrain normal
     private float _speedModifier = 0.2f;
     private float _maxSpeed = 10f;
@@ -47,14 +49,18 @@ public class Avatar : MonoBehaviour {
     private bool _isOnPlane = true;
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
+    private Vector3 _launchNormal;
+    private Vector3 _launchForward;
     private Vector3 moveDirection = Vector3.zero;
     private Animator _animator;
+    private bool _ragdoll = false;
 
 	// Use this for initialization
 	void Start () {
         _initialPosition = transform.position;
         _initialRotation = transform.rotation;
         _animator = GetComponent<Animator>();
+		TurnRagdoll(false);
         Rider.centerOfMass = Skateboard.transform.position;
 	}
 	
@@ -70,6 +76,24 @@ public class Avatar : MonoBehaviour {
             obj.rotation = Quaternion.Lerp(fromAngle, toAngle, t);
             yield return null;
         }
+    }
+
+    void TurnRagdoll(bool onOff) {
+    	_animator.enabled = !onOff;
+    	var childrenRigidbodies = SkeletonParent.GetComponentsInChildren<Rigidbody>();
+    	var childrenCollidres = SkeletonParent.GetComponentsInChildren<Collider>();
+    	if (onOff) {
+    		// CameraFollower.target = GameObject.Find("EthanGlasses").transform;
+    		CameraFollower.IgnoreAllRotation = true;
+    	}
+    	Rider.isKinematic = onOff;
+    	for (int i = 0; i < childrenRigidbodies.Length; i++) {
+    		childrenRigidbodies[i].isKinematic = !onOff;
+    		childrenRigidbodies[i].useGravity = onOff;
+    	}
+    	for (int i = 0; i < childrenCollidres.Length; i++) {
+    		childrenCollidres[i].enabled = onOff;
+    	}
     }
 
     bool IsGrounded() {
@@ -113,15 +137,27 @@ public class Avatar : MonoBehaviour {
 
     void OnJointBreak(float breakForce)
     {
+    	EndGame();
+    }
+
+    void EndGame() {
         Rider.useGravity = true;
         Rider.mass = 200f;
         Rider.constraints = RigidbodyConstraints.None;
-        Rider.velocity = Vector3.zero;
-        Rider.angularVelocity = Vector3.zero;
-        Rider.isKinematic = true;
+        // Rider.velocity = Vector3.zero;
+        // Rider.angularVelocity = Vector3.zero;
+        // Rider.isKinematic = true;
+        _ragdoll = true;
         //Skateboard.velocity = Vector3.zero;
         //Skateboard.angularVelocity = Vector3.zero;
         GameManager.ShowDeadUI();
+    }
+    void OnCollisionEnter(Collision collision) {
+    	foreach (ContactPoint point in collision.contacts) {
+    		if (point.thisCollider == Rider.GetComponent<CapsuleCollider>()) {
+				EndGame();
+    		}
+    	}
     }
 
     void Pedal() {
@@ -130,6 +166,8 @@ public class Avatar : MonoBehaviour {
 
 	void Update()
 	{
+		CameraFollower.target.position = SkeletonParent.transform.position;
+		TurnRagdoll(_ragdoll);
 		// if (Input.GetKey(KeyCode.W)) {
 		// 	Rider.isKinematic = true;
 		// } else {
@@ -149,6 +187,8 @@ public class Avatar : MonoBehaviour {
             if (Input.GetKeyUp(Pop))
             {
                 _animator.SetBool("Crouch", false);
+                _launchNormal = Rider.transform.up;
+                _launchForward = Rider.transform.forward;
                 Skateboard.AddForce(Vector3.up * _popModifier);
             }
             if (_isOnPlane)
@@ -156,33 +196,34 @@ public class Avatar : MonoBehaviour {
                 //Rider.constraints = RigidbodyConstraints.FreezeRotationY;
                 //Rider.constraints = RigidbodyConstraints.FreezeRotationZ;
                 Skateboard.constraints = RigidbodyConstraints.FreezeRotationZ;
+                // Skateboard.transform.up = Vector3.up * Rider.transform.rotation.y;
             } else
             {
                 Rider.constraints = RigidbodyConstraints.None;
                 Skateboard.constraints = RigidbodyConstraints.None;
             }
-
             transform.Rotate(Vector3.up * steer * _rotationModifier * Time.deltaTime);
         } else {
         	CameraFollower.IgnoreLateral = true;
             if (_animator.GetBool("Crouch"))
             {
-                _animator.SetBool("Crouch", true);
+                _animator.SetBool("Crouch", false);
+                _launchNormal = Rider.transform.up;
+                _launchForward = Rider.transform.forward;
             }
             Rider.constraints = RigidbodyConstraints.FreezeRotationX;
-            // ignore lateral movement while in air to visualize 360, 180, etc.
-            // airtime deceleration
+        	// we need to rotate relative to the point of departure from the surface
             if (Input.GetKey(SpinRight)) {
-        		StartCoroutine(RotateMe(transform.up * 90f, 0.5f, Rider.transform));
+        		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier);
     		}
     		if (Input.GetKey(SpinLeft)) {
-        		StartCoroutine(RotateMe(transform.up * -90f, 0.5f, Rider.transform));
+        		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier * -1f);
     		}
     		if (Input.GetKey(FlipUp)) {
-        		StartCoroutine(RotateMe(transform.forward * 180f, 0.5f, Rider.transform));
+        		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialRotationModifier);
     		}
-    		if (Input.GetKey(SpinRight)) {
-        		StartCoroutine(RotateMe(transform.forward * -80f, 0.5f, Rider.transform));
+    		if (Input.GetKey(FlipDown)) {
+        		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialRotationModifier * -1f);
     		}
         }
       //   if (IsGrounded()) {
