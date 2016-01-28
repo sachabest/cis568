@@ -53,12 +53,16 @@ public class Avatar : MonoBehaviour {
     private Vector3 _launchForward;
     private Vector3 moveDirection = Vector3.zero;
     private Animator _animator;
+    private Collider _riderCollider;
+    private Collider _skateboardCollider;
     private bool _ragdoll = false;
 
 	// Use this for initialization
 	void Start () {
         _initialPosition = transform.position;
         _initialRotation = transform.rotation;
+        _riderCollider = Rider.GetComponent<CapsuleCollider>();
+        _skateboardCollider = Skateboard.GetComponent<BoxCollider>();
         _animator = GetComponent<Animator>();
 		TurnRagdoll(false);
         Rider.centerOfMass = Skateboard.transform.position;
@@ -152,11 +156,13 @@ public class Avatar : MonoBehaviour {
         //Skateboard.angularVelocity = Vector3.zero;
         GameManager.ShowDeadUI();
     }
+
     void OnCollisionEnter(Collision collision) {
     	foreach (ContactPoint point in collision.contacts) {
-    		if (point.thisCollider == Rider.GetComponent<CapsuleCollider>()) {
+    		if (point.thisCollider == _riderCollider) {
 				EndGame();
-    		}
+				break;
+    		};
     	}
     }
 
