@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum GravityChange {
@@ -20,6 +20,7 @@ public class Avatar : MonoBehaviour {
 
     public SmoothFollow CameraFollower;
 
+    public SkateboardPhysicsManager SkateboardPhysics;
     public Rigidbody Skateboard;
     public Rigidbody Rider;
     public Joint SkateJoint;
@@ -31,7 +32,8 @@ public class Avatar : MonoBehaviour {
     private float _pedalStrength = 5.0f;
 
     private float _gravityRotationModifier = 0.0f;
-    private float _rotationModifier = 50f;
+    // private float _rotationModifier = 50f;
+    private float _rotationModifier = 100f;
     private float _currentOrientation = 0f;
     private float _aerialRotationModifier = 200f;
     private Vector3 _curNormal = Vector3.up; // smoothed terrain normal
@@ -100,18 +102,6 @@ public class Avatar : MonoBehaviour {
     	}
     }
 
-    bool IsGrounded() {
-    	RaycastHit hit;
-    	if (Physics.Raycast(Skateboard.transform.position, -Vector3.up, out hit, 0.5f)) {
-            if (hit.collider.gameObject.name == "pPlane2")
-            {
-                _isOnPlane = true;
-            }
-            return true;
-    	}
-    	return false;
-    }
-
     bool isDead() {
         return Mathf.Abs(PersonCollider.transform.position.y) < 0.2;
     }
@@ -173,6 +163,7 @@ public class Avatar : MonoBehaviour {
 	void Update()
 	{
 		CameraFollower.target.position = SkeletonParent.transform.position;
+
 		TurnRagdoll(_ragdoll);
 		// if (Input.GetKey(KeyCode.W)) {
 		// 	Rider.isKinematic = true;
@@ -181,7 +172,7 @@ public class Avatar : MonoBehaviour {
 		// }
         float steer = Input.GetAxis("Horizontal");
         float accelerate = Input.GetAxis("Vertical");
-        if (IsGrounded()) {
+        if (SkateboardPhysics.IsGrounded()) {
         	CameraFollower.IgnoreLateral = false;
         	if (Input.GetKeyDown(KeyCode.W)) {
         		Pedal();
@@ -197,7 +188,7 @@ public class Avatar : MonoBehaviour {
                 _launchForward = Rider.transform.forward;
                 Skateboard.AddForce(Vector3.up * _popModifier);
             }
-            if (_isOnPlane)
+            if (SkateboardPhysics.IsOnPlane)
             {
                 //Rider.constraints = RigidbodyConstraints.FreezeRotationY;
                 //Rider.constraints = RigidbodyConstraints.FreezeRotationZ;
@@ -208,7 +199,7 @@ public class Avatar : MonoBehaviour {
                 Rider.constraints = RigidbodyConstraints.None;
                 Skateboard.constraints = RigidbodyConstraints.None;
             }
-            transform.Rotate(Vector3.up * steer * _rotationModifier * Time.deltaTime);
+            Skateboard.AddRelativeTorque(Vector3.up * steer * _rotationModifier * Time.deltaTime);
         } else {
         	CameraFollower.IgnoreLateral = true;
             if (_animator.GetBool("Crouch"))
@@ -219,38 +210,41 @@ public class Avatar : MonoBehaviour {
             }
             Rider.constraints = RigidbodyConstraints.FreezeRotationX;
         	// we need to rotate relative to the point of departure from the surface
+
+            // Unity does some wacky shit with Gimball lock at z 270 degrees. 
+            // Damn undocumented features ruin this program
+
             if (Input.GetKey(SpinRight)) {
-        		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier);
+        		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier * 1f);
     		}
     		if (Input.GetKey(SpinLeft)) {
         		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier * -1f);
     		}
     		if (Input.GetKey(FlipUp)) {
-        		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialRotationModifier);
+                var targetAerialRotation = _launchForward * Time.deltaTime * _aerialRotationModifier * 1f;
+                if (90 - Rider.transform.eulerAngles.z < 3) {
+                    // Rider.transform.rotation = 
+                }
+                targetAerialRotation.z = CalcEulerSafeX(targetAerialRotation.z);
+        		Rider.transform.Rotate(targetAerialRotation);
     		}
     		if (Input.GetKey(FlipDown)) {
         		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialRotationModifier * -1f);
     		}
         }
-      //   if (IsGrounded()) {
-	     //    _speed -= _decay * _speed;
-      //   	// ignore lateral movement while in air to visualize 360, 180, etc.
-      //   	CameraFollower.IgnoreLateral = false;
-	     //    _speed = _speedModifier * accelerate * Time.Touch.deltaTime;
-	     //    _speed = Mathf.Min(_maxSpeed, _speed);
-	     //    _previousAccel = accelerate;
-	     //    _currentOrientation = steer * _rotationModifier;
-      //   } else {
-      //   	// ignore lateral movement while in air to visualize 360, 180, etc.
-      //   	CameraFollower.IgnoreLateral = true;
-
-      //       // airtime deceleration
-      //       _speed -= _decayAirtime * _speed;
-
-      //       // rotate with air speed
-    		// _currentOrientation = steer * _aerialRotationModifier;
-      //   }
 	}
+
+    static float CalcEulerSafeX(float x)
+    {
+        if (Mathf.Abs(x) < 90)
+            return x;
+        x = x % 90;
+        if (x > 0)
+            x -= 270;
+        else
+            x += 270;
+        return x;
+    }
 
     // void Update() {
 
