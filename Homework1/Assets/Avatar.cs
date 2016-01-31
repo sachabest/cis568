@@ -33,7 +33,7 @@ public class Avatar : MonoBehaviour {
 
     private float _gravityRotationModifier = 0.0f;
     // private float _rotationModifier = 50f;
-    private float _rotationModifier = 100f;
+    private float _rotationModifier = 5f;
     private float _currentOrientation = 0f;
     private float _aerialRotationModifier = 200f;
     private Vector3 _curNormal = Vector3.up; // smoothed terrain normal
@@ -127,6 +127,17 @@ public class Avatar : MonoBehaviour {
             default:
                 break;
         }
+        float steer = Input.GetAxis("Horizontal");
+        if (SkateboardPhysics.IsGrounded() && Mathf.Abs(steer) > 0.1f) {
+            Debug.Log("grounded");
+            Quaternion q = Quaternion.AngleAxis(_rotationModifier * steer, Skateboard.transform.up) * Skateboard.transform.rotation;
+            Skateboard.MoveRotation(q);
+            float mag = Skateboard.velocity.magnitude;
+            Skateboard.velocity = Skateboard.transform.forward * mag * 1f;
+            // Skateboard.AddRelativeTorque(Vector3.up * steer * _rotationModifier * Time.deltaTime);
+        }
+
+
     }
 
     void OnJointBreak(float breakForce)
@@ -157,7 +168,8 @@ public class Avatar : MonoBehaviour {
     }
 
     void Pedal() {
-    	Skateboard.velocity += Skateboard.transform.forward * _pedalStrength;
+    	// Skateboard.velocity += Skateboard.transform.forward * _pedalStrength;
+        Skateboard.AddRelativeForce(Vector3.forward * _pedalStrength * 80, ForceMode.Acceleration);
     }
 
 	void Update()
@@ -170,8 +182,6 @@ public class Avatar : MonoBehaviour {
 		// } else {
 		// 	Rider.isKinematic = false;
 		// }
-        float steer = Input.GetAxis("Horizontal");
-        float accelerate = Input.GetAxis("Vertical");
         if (SkateboardPhysics.IsGrounded()) {
         	CameraFollower.IgnoreLateral = false;
         	if (Input.GetKeyDown(KeyCode.W)) {
@@ -199,7 +209,6 @@ public class Avatar : MonoBehaviour {
                 Rider.constraints = RigidbodyConstraints.None;
                 Skateboard.constraints = RigidbodyConstraints.None;
             }
-            Skateboard.AddRelativeTorque(Vector3.up * steer * _rotationModifier * Time.deltaTime);
         } else {
         	CameraFollower.IgnoreLateral = true;
             if (_animator.GetBool("Crouch"))

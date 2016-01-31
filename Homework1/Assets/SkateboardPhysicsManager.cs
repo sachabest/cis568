@@ -37,7 +37,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (_landingInProgress) {
-			LandingLerp();
+			// LandingLerp();
 		}
 	}
 
