@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: bbcf5a5518acb444da8830ef3b650f78
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - PointSkin: {fileID: 11400000, guid: b14803c36e4bb01479161924b424cb8b, type: 2}
+  - PointSkinShadow: {fileID: 11400000, guid: 53eb731ec52f99847b190c14c6c645ab, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+Hello,
+
+function MonsterDied() {
+	var PointScript = AddComponent("Point");
+	PointScript.Point = 50;
+}
+
+When MonsterDied() function is triggered, 50 points will be seen on the object.
+
+Regards,
+Eren Aydin
+bisaniyehocam Producer
+www.bisaniyehocam.com
+www.youtube.com/bshgame
+www.facebook.com/feykpeyc

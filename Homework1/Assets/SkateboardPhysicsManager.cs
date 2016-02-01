@@ -13,6 +13,10 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	private float _startLerpTime;
 	private float _landingTransitionTime = 1f;
 	private float _landingTransitionDistance;
+
+
+	private bool _upwardVelocityReset = false;
+	public bool JustPopped;
 	public bool IsOnPlane;
 
 	// Use this for initialization
@@ -26,6 +30,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		float fractionCovered = distCovered / _landingTransitionDistance;
 		if (fractionCovered >= 1f) {
 			_landingInProgress = false;
+			Avatar.instance.Land();
 			return;
 		}
 		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
@@ -39,6 +44,9 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		if (_landingInProgress) {
 			// LandingLerp();
 		}
+		if (JustPopped) {
+			JustPopped = false;
+		}
 	}
 
 	void OnCollisionExit(Collision collision) {
@@ -46,6 +54,13 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 			// now we have to detect whether or not this should be a valid landing
 			_colliderSaysJumping = true;
 			Debug.Log("Collider says jumping");
+		} else if (collision.gameObject.name == "SkateboardPark") {
+			_colliderSaysJumping = true;
+			Debug.Log("Collider says jumping");
+			if (JustPopped && !_upwardVelocityReset && Vector3.Distance(transform.forward, Vector3.up) < 1.5f) {
+				_skateboardRigidbody.velocity = Vector3.up * _skateboardRigidbody.velocity.magnitude;
+				_upwardVelocityReset = true;
+			}
 		}
 	}
 
@@ -77,6 +92,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_landingDestinationPosition = tempVelocityVector;
 					_landingTransitionDistance = Vector3.Distance(_landingStartPosition, _landingDestinationPosition);
 					_colliderSaysJumping = false;
+					_upwardVelocityReset = false;
 					_landingInProgress = true;
 					_startLerpTime = Time.time;
 					// change velocity to account for change in forward

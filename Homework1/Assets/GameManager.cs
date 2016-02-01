@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -8,15 +9,30 @@ public class GameManager : MonoBehaviour {
     public Canvas DeadCanvas;
 
     private float _gravity = 4.0f;
+    private float _score = 0.0f;
+
+    public Text ScoreTest;
 	public Avatar MainAvatar;
+
+	public static GameManager instance;
 
 	// Use this for initialization
 	void Start () {
         DeadCanvas.enabled = false;
+        if (!GameManager.instance) {
+        	instance = this;
+        }
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(DeadCanvas);
 	}
 	
     public void ShowDeadUI() {
         DeadCanvas.enabled = true;
+    }
+
+    public void AddScore(float toAdd) {
+    	_score += toAdd;
+    	ScoreTest.text = _score.ToString();
     }
 
 	// Update is called once per frame
@@ -24,6 +40,7 @@ public class GameManager : MonoBehaviour {
         if (DeadCanvas.enabled && Input.GetKeyUp("space"))
         {
             Application.LoadLevel(Application.loadedLevel);
+            DeadCanvas.enabled = false;
         }
 		if (Input.GetKey(Toggle) || Input.GetKey(AltToggle)) {
 			if (Input.GetKeyDown(Gravity[0])) {
