@@ -17,20 +17,19 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        DeadCanvas = GameObject.Find("DeadUI").GetComponent<Canvas>();
         DeadCanvas.enabled = false;
         if (!GameManager.instance) {
         	instance = this;
-        }
-        DontDestroyOnLoad(this);
-        DontDestroyOnLoad(DeadCanvas);
+        } // destory handled by permanentdata
 	}
 	
     public void ShowDeadUI() {
         DeadCanvas.enabled = true;
     }
 
-    public void AddScore(float toAdd) {
+    public void AddScore(int toAdd) {
     	_score += toAdd;
     	ScoreTest.text = _score.ToString();
     }

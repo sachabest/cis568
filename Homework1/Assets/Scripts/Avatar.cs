@@ -159,7 +159,6 @@ public class Avatar : MonoBehaviour {
     {
         if (!_dead) {
             EndGame();
-
         }
     }
 
@@ -177,7 +176,7 @@ public class Avatar : MonoBehaviour {
         Skateboard.velocity *= 0.1f;
         Rider.mass = 10f;
         _ragdoll = true;
-        GameManager.ShowDeadUI();
+        GameManager.instance.ShowDeadUI();
         _audioSource.Play();
         Debug.Log(_audioSource.volume);
     }
@@ -200,7 +199,7 @@ public class Avatar : MonoBehaviour {
     public void Land() {
         if (!_dead && _jumpStartTime != 0.0f) {
             Debug.Log("score");
-            GameManager.instance.AddScore(_currentJumpScore);
+            GameManager.instance.AddScore((int) _currentJumpScore);
             _currentJumpScore = 0.0f;
             _jumpStartTime = 0.0f;
         }
@@ -281,6 +280,8 @@ public class Avatar : MonoBehaviour {
     		if (Input.GetKey(FlipDown)) {
         		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialTiltModifier * -1f);
     		}
+            var flyingPoint = CameraFollower.gameObject.AddComponent<Point>();
+            flyingPoint.Point = _currentJumpScore;
         }
 	}
 

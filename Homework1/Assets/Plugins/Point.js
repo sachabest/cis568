@@ -24,4 +24,7 @@ function OnGUI() {
 
 function Update() {
 	targY -= Time.deltaTime*200;
+	if (targY < 0) {
+		Destroy(this);
+	}
 }

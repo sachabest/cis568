@@ -35,7 +35,6 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		float fractionCovered = distCovered / _landingTransitionDistance;
 		if (fractionCovered >= 1f) {
 			_landingInProgress = false;
-			Avatar.instance.Land();
 			return;
 		}
 		var groundYourself = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0, transform.position.z), fractionCovered);
@@ -130,6 +129,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_landingInProgress = true;
 					_audioSource.clip = LandSound;
 					_audioSource.Play();
+					Avatar.instance.Land();
 					_startLerpTime = Time.time;
 					// change velocity to account for change in forward
 
