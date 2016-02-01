@@ -14,7 +14,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	private float _landingTransitionTime = 1f;
 	private float _landingTransitionDistance;
 
-
+	private bool _onPark;
 	private bool _upwardVelocityReset = false;
 	public bool JustPopped;
 	public bool IsOnPlane;
@@ -26,6 +26,23 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	}
 	
 	void LandingLerp() {
+		float distCovered = (Time.time - _startLerpTime) * _landingTransitionTime;
+		float fractionCovered = distCovered / _landingTransitionDistance;
+		if (fractionCovered >= 1f) {
+			_landingInProgress = false;
+			Avatar.instance.Land();
+			return;
+		}
+		var groundYourself = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0, transform.position.z), fractionCovered);
+		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
+		Debug.Log(temp);
+		transform.forward = temp;
+		// transform.position = groundYourself;
+		// somehow we need ot reorient the velocity in the new direction
+		// _skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
+	}
+
+	void VerticalTakeoffLerp() {
 		float distCovered = (Time.time / _startLerpTime) * _landingTransitionTime;
 		float fractionCovered = distCovered / _landingTransitionDistance;
 		if (fractionCovered >= 1f) {
@@ -34,18 +51,22 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 			return;
 		}
 		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
-		Debug.Log(temp);
 		transform.right = temp;
-		// somehow we need ot reorient the velocity in the new direction
-		// _skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
 	}
+
 	// Update is called once per frame
 	void Update () {
 		if (_landingInProgress) {
-			// LandingLerp();
+			LandingLerp();
 		}
 		if (JustPopped) {
 			JustPopped = false;
+		}
+		if (IsGrounded() && !_onPark) {
+			// _skateboardRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+			// transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+		} else {
+			_skateboardRigidbody.constraints = RigidbodyConstraints.None;
 		}
 	}
 
@@ -86,9 +107,10 @@ public class SkateboardPhysicsManager : MonoBehaviour {
     			if (tempVelocityVector.magnitude < 0.1f) {
     				break;
     			}
+    			_onPark = false;
 				if (_colliderSaysJumping) {
 					// reset normals to correct direction
-					_landingStartPosition = transform.right;
+					_landingStartPosition = transform.forward;
 					_landingDestinationPosition = tempVelocityVector;
 					_landingTransitionDistance = Vector3.Distance(_landingStartPosition, _landingDestinationPosition);
 					_colliderSaysJumping = false;
@@ -99,6 +121,10 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 
 				}
     			break;
+    		} else if (point.otherCollider.gameObject.name == "SkateboardPark") {
+    			_onPark = true;
+    		} else {
+    			_onPark = false;
     		}
     	}
 	}
