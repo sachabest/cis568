@@ -13,9 +13,13 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	private float _startLerpTime;
 	private float _landingTransitionTime = 1f;
 	private float _landingTransitionDistance;
+    private float _popModifier = 290.0f;
 
 	private bool _onPark;
 	private bool _upwardVelocityReset = false;
+	private AudioSource _audioSource;
+	public AudioClip PopSound;
+	public AudioClip LandSound;
 	public bool JustPopped;
 	public bool IsOnPlane;
 
@@ -23,6 +27,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	void Start () {
 		_skateboardCollider = GetComponent<BoxCollider>();
 		_skateboardRigidbody = GetComponent<Rigidbody>();
+		_audioSource = GetComponent<AudioSource>();
 	}
 	
 	void LandingLerp() {
@@ -35,7 +40,6 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		}
 		var groundYourself = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0, transform.position.z), fractionCovered);
 		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
-		Debug.Log(temp);
 		transform.forward = temp;
 		// transform.position = groundYourself;
 		// somehow we need ot reorient the velocity in the new direction
@@ -66,7 +70,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 			// _skateboardRigidbody.constraints = RigidbodyConstraints.FreezePositionY;
 			// transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 		} else {
-			_skateboardRigidbody.constraints = RigidbodyConstraints.None;
+			// _skateboardRigidbody.constraints = RigidbodyConstraints.None;
 		}
 	}
 
@@ -98,6 +102,14 @@ public class SkateboardPhysicsManager : MonoBehaviour {
     	return false;
     }
 
+    public void Pop() {
+        JustPopped = true;
+        _skateboardRigidbody.AddForce(Vector3.up * _popModifier);
+        _audioSource.clip = PopSound;
+        _audioSource.volume = 1f;
+        _audioSource.Play();
+    }
+
 	void OnCollisionEnter(Collision collision) {
     	foreach (ContactPoint point in collision.contacts) {
     		var thisCollider = point.thisCollider;
@@ -116,6 +128,8 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_colliderSaysJumping = false;
 					_upwardVelocityReset = false;
 					_landingInProgress = true;
+					_audioSource.clip = LandSound;
+					_audioSource.Play();
 					_startLerpTime = Time.time;
 					// change velocity to account for change in forward
 

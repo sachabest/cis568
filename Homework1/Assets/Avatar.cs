@@ -39,7 +39,7 @@ public class Avatar : MonoBehaviour {
     private float _aerialTiltModifier = 50f;
     private Vector3 _curNormal = Vector3.up; // smoothed terrain normal
     private float _speedModifier = 0.2f;
-    private float _maxSpeed = 10f;
+    private float _maxSpeed = 50f;
     private float _speed = 0.0f;
     private float _decay = 0.001f;
     private float _gravity = 3.0f;
@@ -47,7 +47,6 @@ public class Avatar : MonoBehaviour {
     private float _previousAccel = 0.0f; // used for compound acceleration
     private long _framesMaxAccel = 0; // used for compound acceleration
     private float _groundDistance;
-    private float _popModifier = 290.0f;
 
     private float _currentJumpScore = 0.0f;
     private float _rotationScoreModifier = 50.0f;
@@ -62,6 +61,8 @@ public class Avatar : MonoBehaviour {
     private Vector3 _launchForward;
     private Vector3 moveDirection = Vector3.zero;
     private Animator _animator;
+    private AudioSource _audioSource;
+    public AudioClip[] Clips;
     private Collider _riderCollider;
     private Collider _skateboardCollider;
     private bool _ragdoll = false;
@@ -79,6 +80,8 @@ public class Avatar : MonoBehaviour {
         _riderCollider = Rider.GetComponent<CapsuleCollider>();
         _skateboardCollider = Skateboard.GetComponent<BoxCollider>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = Clips[0];
 		TurnRagdoll(false);
         Rider.centerOfMass = Skateboard.transform.position;
 	}
@@ -154,23 +157,37 @@ public class Avatar : MonoBehaviour {
 
     void OnJointBreak(float breakForce)
     {
-    	EndGame();
+        if (!_dead) {
+            EndGame();
+
+        }
     }
 
     void EndGame() {
         _dead = true;
         Rider.useGravity = true;
         Rider.mass = 200f;
+        _audioSource.Stop();
+        _audioSource.clip = Clips[1];
+        _audioSource.loop = false;
+        _audioSource.volume = 100;
         Rider.constraints = RigidbodyConstraints.None;
-        Rider.velocity = Skateboard.velocity;
+        Rider.velocity = 0.10f * Skateboard.velocity;
+        Skateboard.gameObject.GetComponent<AudioSource>().volume = 0;
+        Skateboard.velocity *= 0.1f;
+        Rider.mass = 10f;
         _ragdoll = true;
         GameManager.ShowDeadUI();
+        _audioSource.Play();
+        Debug.Log(_audioSource.volume);
     }
 
     void OnCollisionEnter(Collision collision) {
     	foreach (ContactPoint point in collision.contacts) {
     		if (point.thisCollider == _riderCollider) {
-				EndGame();
+                if (!_dead) {
+                    EndGame();
+                }
 				break;
     		};
     	}
@@ -196,6 +213,14 @@ public class Avatar : MonoBehaviour {
 		TurnRagdoll(_ragdoll);
 
         if (SkateboardPhysics.IsGrounded()) {
+            if (Skateboard.velocity.magnitude > 0.1 && !_dead) {
+                if (!_audioSource.isPlaying) {
+                    _audioSource.Play();
+                }
+                _audioSource.volume = (Skateboard.velocity.magnitude / _maxSpeed) * 1;
+            } else if (!_dead) {
+                _audioSource.Stop();
+            }
         	CameraFollower.IgnoreLateral = false;
         	if (Input.GetKeyDown(KeyCode.W)) {
         		Pedal();
@@ -210,8 +235,7 @@ public class Avatar : MonoBehaviour {
                 _launchNormal = Rider.transform.up;
                 _launchForward = Rider.transform.forward;
                 _jumpStartTime = Time.time;
-                SkateboardPhysics.JustPopped = true;
-                Skateboard.AddForce(Vector3.up * _popModifier);
+                SkateboardPhysics.Pop();
             }
             if (SkateboardPhysics.IsOnPlane)
             {
@@ -227,6 +251,9 @@ public class Avatar : MonoBehaviour {
         } else {
             if (!_dead && _jumpStartTime != 0.0f) {
                 _currentJumpScore =+ _timeScoreModifier * (Time.time - _jumpStartTime);
+            }
+            if (_audioSource.isPlaying && !_dead) {
+                _audioSource.Stop();
             }
         	CameraFollower.IgnoreLateral = true;
             if (_animator.GetBool("Crouch"))
