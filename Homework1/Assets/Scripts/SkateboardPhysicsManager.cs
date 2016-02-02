@@ -77,10 +77,8 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		if (collision.gameObject.name == "pPlane2") {
 			// now we have to detect whether or not this should be a valid landing
 			_colliderSaysJumping = true;
-			Debug.Log("Collider says jumping");
 		} else if (collision.gameObject.name == "SkateboardPark") {
 			_colliderSaysJumping = true;
-			Debug.Log("Collider says jumping");
 			if (JustPopped && !_upwardVelocityReset && Vector3.Distance(transform.forward, Vector3.up) < 1.5f) {
 				_skateboardRigidbody.velocity = Vector3.up * _skateboardRigidbody.velocity.magnitude;
 				_upwardVelocityReset = true;

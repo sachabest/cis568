@@ -38,7 +38,6 @@ public class SmoothFollow : MonoBehaviour {
 			float wantedRotationAngle = target.eulerAngles.y;
 			 if (IgnoreLateral) {
 			 	// lock y rotation
-			 	Debug.Log("ignoring lateral movement");
 			 	wantedRotationAngle = _previousYRotation;
 			 } else {
 				_previousYRotation = target.eulerAngles.y;

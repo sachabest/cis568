@@ -178,7 +178,6 @@ public class Avatar : MonoBehaviour {
         _ragdoll = true;
         GameManager.instance.ShowDeadUI();
         _audioSource.Play();
-        Debug.Log(_audioSource.volume);
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -190,6 +189,10 @@ public class Avatar : MonoBehaviour {
 				break;
     		};
     	}
+    }
+
+    void OnTriggerEnter(Collider collision) {
+        EndGame();
     }
 
     void Pedal() {
@@ -280,8 +283,10 @@ public class Avatar : MonoBehaviour {
     		if (Input.GetKey(FlipDown)) {
         		Rider.transform.Rotate(_launchForward * Time.deltaTime * _aerialTiltModifier * -1f);
     		}
-            var flyingPoint = CameraFollower.gameObject.AddComponent<Point>();
-            flyingPoint.Point = _currentJumpScore;
+            if (!_dead) {
+                var flyingPoint = CameraFollower.gameObject.AddComponent<Point>();
+                flyingPoint.Point = _currentJumpScore;
+            }
         }
 	}
 

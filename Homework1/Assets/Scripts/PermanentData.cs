@@ -12,7 +12,7 @@ using System.Collections;
          else
              Destroy(this.gameObject);
  
- 		GetComponent<GameManager>().DeadCanvas = GameObject.Find("DeadUI").GetComponent<Canvas>();
+ 		// GetComponent<GameManager>().DeadCanvas = GameObject.Find("DeadUI").GetComponent<Canvas>();
         DontDestroyOnLoad(this.gameObject);
      }
  }
