@@ -61,7 +61,6 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	}
         // somehow we need ot reorient the velocity in the new direction
         //_skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
-    }
 
 	// Update is called once per frame
 	void Update () {
