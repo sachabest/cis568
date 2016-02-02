@@ -164,6 +164,7 @@ public class Avatar : MonoBehaviour {
 
     void EndGame() {
         _dead = true;
+        Debug.Log("ending game");
         Rider.useGravity = true;
         Rider.mass = 200f;
         _audioSource.Stop();
@@ -186,6 +187,8 @@ public class Avatar : MonoBehaviour {
                 if (!_dead) {
                     EndGame();
                 }
+                Debug.Log("Rider collider hit the ground." + point.otherCollider.gameObject.name);
+				EndGame();
 				break;
     		};
     	}

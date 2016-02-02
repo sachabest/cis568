@@ -11,7 +11,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	private bool _colliderSaysJumping;
 	private bool _landingInProgress;
 	private float _startLerpTime;
-	private float _landingTransitionTime = 1f;
+	private float _landingTransitionTime = 200f ;
 	private float _landingTransitionDistance;
     private float _popModifier = 290.0f;
 
@@ -23,6 +23,8 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	public bool JustPopped;
 	public bool IsOnPlane;
 
+    public Joint SkateboardJoint;
+
 	// Use this for initialization
 	void Start () {
 		_skateboardCollider = GetComponent<BoxCollider>();
@@ -33,6 +35,7 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	void LandingLerp() {
 		float distCovered = (Time.time - _startLerpTime) * _landingTransitionTime;
 		float fractionCovered = distCovered / _landingTransitionDistance;
+        Debug.Log(fractionCovered);
 		if (fractionCovered >= 1f) {
 			_landingInProgress = false;
 			return;
@@ -56,6 +59,9 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
 		transform.right = temp;
 	}
+        // somehow we need ot reorient the velocity in the new direction
+        //_skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -72,7 +78,6 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 			// _skateboardRigidbody.constraints = RigidbodyConstraints.None;
 		}
 	}
-
 	void OnCollisionExit(Collision collision) {
 		if (collision.gameObject.name == "pPlane2") {
 			// now we have to detect whether or not this should be a valid landing
@@ -128,6 +133,8 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_audioSource.clip = LandSound;
 					_audioSource.Play();
 					Avatar.instance.Land();
+                    //SkateboardJoint.breakForce = float.PositiveInfinity;
+                    //SkateboardJoint.breakTorque = float.PositiveInfinity;
 					_startLerpTime = Time.time;
 					// change velocity to account for change in forward
 
