@@ -109,3 +109,10 @@ These are problems and bugs with the game I didn't get to fixing in the given am
 * VTOL orientation: vertical takeoff and landing off of a quarterpipe is a tricky problem - we need to adapt the player's rotation keys to turn the player about a different axis than if the player was horizontal. 
 
 * Better landings: the landings are rough right now. I'd love to dig into the math that is involved with interpolating between the orientation vector, velocity vector, and the ground plane normal.
+
+#### References
+
+* Unity default Third Person Character
+* Skatepark models - design3
+* Skatboard - free from Turbosquid
+* Music: Guerilla Radio by Rage Against the Machine
