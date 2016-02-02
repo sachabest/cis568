@@ -144,8 +144,10 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_colliderSaysJumping = false;
 					_upwardVelocityReset = false;
 					_landingInProgress = true;
-					_audioSource.clip = LandSound;
-					_audioSource.Play();
+					if (_audioSource.isPlaying) {
+						_audioSource.clip = LandSound;
+						_audioSource.Play();
+					}
                     //SkateboardJoint.breakForce = float.PositiveInfinity;
                     //SkateboardJoint.breakTorque = float.PositiveInfinity;
 					_startLerpTime = Time.time;

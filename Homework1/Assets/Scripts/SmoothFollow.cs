@@ -46,6 +46,9 @@ public class SmoothFollow : MonoBehaviour {
 				wantedRotationAngle = _previousYRotation;
 			} else {
 				_previousYRotation = target.eulerAngles.y;
+				if (Switch) {
+					_previousYRotation *= -1f;
+				}
 			}
 			
 			float wantedHeight = target.position.y + height;
@@ -65,7 +68,11 @@ public class SmoothFollow : MonoBehaviour {
 			// Set the position of the camera on the x-z plane to:
 			// distance meters behind the target
 			transform.position = target.position;
-			transform.position -= currentRotation * Vector3.forward * distance;
+			if (Switch) {
+				transform.position -= currentRotation * Vector3.forward * distance;
+			} else {
+				transform.position -= currentRotation * Vector3.forward * distance;
+			}
 
 			// Set the height of the camera
 			transform.position= new Vector3(transform.position.x, currentHeight, transform.position.z);
