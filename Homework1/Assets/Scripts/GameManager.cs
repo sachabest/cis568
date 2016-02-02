@@ -34,6 +34,15 @@ public class GameManager : MonoBehaviour {
         } // destory handled by permanentdata
 	}
 	
+    void OnLevelWasLoaded(int level) {
+    	if (level == 0) {
+    		Reset();
+    		HUD.enabled = false;
+    	} else if (level == 1) {
+    		HUD.enabled = true;
+    	}
+    }
+
 	public void Reset() {
 		_inEndgame = false;
         DeadCanvas.enabled = false;
@@ -41,7 +50,7 @@ public class GameManager : MonoBehaviour {
         HUD.enabled = true;
         _mainAudio.Stop();
         _mainAudio.Play();
-        _gameTimer = 59f;
+        _gameTimer = 60f;
 	}
 
     public void ShowDeadUI() {
@@ -51,6 +60,10 @@ public class GameManager : MonoBehaviour {
     public void AddScore(int toAdd) {
     	_score += toAdd;
     	ScoreTest.text = _score.ToString();
+    }
+
+    public bool IsInFinalEndgame() {
+    	return GameOverCanvas.enabled;
     }
 
     void FinalEndGame() {
@@ -68,9 +81,10 @@ public class GameManager : MonoBehaviour {
 			FinalEndGame();
 			return;
 		} else if (_inEndgame && Input.GetKey(KeyCode.Return)) {
-			Application.LoadLevel(1);
+			Application.LoadLevel(0);
 		}
-		TimeText.text = "0:" + ((int) _gameTimer).ToString();
+		TimeText.text = "0:" + (_gameTimer < 10 ? "0" : "");
+		TimeText.text += ((int) _gameTimer).ToString();
         if (DeadCanvas.enabled && Input.GetKeyUp("space"))
         {
             Application.LoadLevel(Application.loadedLevel);

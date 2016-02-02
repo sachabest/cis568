@@ -14,6 +14,6 @@ public class Starter : MonoBehaviour {
 	}
 
 	public void Begin() {
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 	}
 }

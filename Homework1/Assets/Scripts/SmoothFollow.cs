@@ -17,6 +17,7 @@ public class SmoothFollow : MonoBehaviour {
 	// The target we are following
 	public Transform target;
 	public bool IgnoreAllRotation = false;
+	public bool Switch = false;
 	// The distance in the x-z plane to the target
 	public float distance;
 	// the height we want the camera to be above the target
@@ -24,6 +25,7 @@ public class SmoothFollow : MonoBehaviour {
 	// How much we 
 	public float heightDamping = 2.0f;
 	public float rotationDamping = 3.0f;
+
 
 	public bool IgnoreLateral = false;
 	private float _previousYRotation = 0.0f;
@@ -36,12 +38,15 @@ public class SmoothFollow : MonoBehaviour {
 		if (!IgnoreAllRotation) {
 			// Calculate the current rotation angles
 			float wantedRotationAngle = target.eulerAngles.y;
-			 if (IgnoreLateral) {
-			 	// lock y rotation
-			 	wantedRotationAngle = _previousYRotation;
-			 } else {
+			if (Switch) {
+				wantedRotationAngle *= -1f;
+			}
+			if (IgnoreLateral) {
+				// lock y rotation
+				wantedRotationAngle = _previousYRotation;
+			} else {
 				_previousYRotation = target.eulerAngles.y;
-			 }
+			}
 			
 			float wantedHeight = target.position.y + height;
 				

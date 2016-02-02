@@ -11,10 +11,11 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	private bool _colliderSaysJumping;
 	private bool _landingInProgress;
 	private float _startLerpTime;
-	private float _landingTransitionTime = 200f ;
+	private float _landingTransitionTime = 400f;
 	private float _landingTransitionDistance;
     private float _popModifier = 290.0f;
-
+    private float _switchTolerance = 1.0f;
+    public bool Switch;
 	private bool _onPark;
 	private bool _upwardVelocityReset = false;
 	private AudioSource _audioSource;
@@ -23,11 +24,13 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	public bool JustPopped;
 	public bool IsOnPlane;
 
+	public Vector3 AerialRotationVector = Vector3.up;
+
+	public SmoothFollow CameraFollower;
     public Joint SkateboardJoint;
 
 	// Use this for initialization
 	void Start () {
-		_skateboardCollider = GetComponent<BoxCollider>();
 		_skateboardRigidbody = GetComponent<Rigidbody>();
 		_audioSource = GetComponent<AudioSource>();
 	}
@@ -35,32 +38,26 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 	void LandingLerp() {
 		float distCovered = (Time.time - _startLerpTime) * _landingTransitionTime;
 		float fractionCovered = distCovered / _landingTransitionDistance;
-        Debug.Log(fractionCovered);
-		if (fractionCovered >= 1f) {
-			_landingInProgress = false;
-			return;
-		}
-		var groundYourself = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0, transform.position.z), fractionCovered);
-		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
-		transform.forward = temp;
-		// transform.position = groundYourself;
-		// somehow we need ot reorient the velocity in the new direction
-		// _skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
-	}
-
-	void VerticalTakeoffLerp() {
-		float distCovered = (Time.time / _startLerpTime) * _landingTransitionTime;
-		float fractionCovered = distCovered / _landingTransitionDistance;
 		if (fractionCovered >= 1f) {
 			_landingInProgress = false;
 			Avatar.instance.Land();
 			return;
 		}
 		var temp = Vector3.Lerp(_landingStartPosition, _landingDestinationPosition, fractionCovered);
-		transform.right = temp;
+		if (!Switch) {
+			transform.forward = temp;
+		} else {
+			transform.forward = -temp;
+		}
 	}
-        // somehow we need ot reorient the velocity in the new direction
-        //_skateboardRigidbody.velocity = temp * _skateboardRigidbody.velocity.magnitude;
+
+    public void Pedal(float strength) {
+    	if (Switch) {
+        	_skateboardRigidbody.AddRelativeForce(-Vector3.forward * strength * 80f, ForceMode.Acceleration);
+    	} else {
+        	_skateboardRigidbody.AddRelativeForce(Vector3.forward * strength * 80f, ForceMode.Acceleration);
+    	}
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -86,6 +83,11 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 			if (JustPopped && !_upwardVelocityReset && Vector3.Distance(transform.forward, Vector3.up) < 1.5f) {
 				_skateboardRigidbody.velocity = Vector3.up * _skateboardRigidbody.velocity.magnitude;
 				_upwardVelocityReset = true;
+				// find where the up vector poinds to find normal to surface
+				float normalToSurface = Vector3.Distance(transform.up, Vector3.right);
+				Debug.Log(normalToSurface);
+			} else if (JustPopped && Vector3.Distance(transform.forward, Vector3.forward) < 1.5f) {
+				AerialRotationVector = Vector3.up;
 			}
 		}
 	}
@@ -123,7 +125,20 @@ public class SkateboardPhysicsManager : MonoBehaviour {
     			_onPark = false;
 				if (_colliderSaysJumping) {
 					// reset normals to correct direction
-					_landingStartPosition = transform.forward;
+
+					// to handle switch
+					// check the difference betweewn normalized direction vectors -if they are opposite
+					// it should be almost 0
+					float normalizedDIfference = (tempVelocityVector.normalized - transform.forward.normalized).magnitude;
+					if (normalizedDIfference >= _switchTolerance) {
+						_landingStartPosition = transform.forward;
+						Switch = true;
+						CameraFollower.Switch = true;
+					} else {
+						Switch = false;
+						CameraFollower.Switch = false;
+						_landingStartPosition = transform.forward;
+					}
 					_landingDestinationPosition = tempVelocityVector;
 					_landingTransitionDistance = Vector3.Distance(_landingStartPosition, _landingDestinationPosition);
 					_colliderSaysJumping = false;
@@ -131,7 +146,6 @@ public class SkateboardPhysicsManager : MonoBehaviour {
 					_landingInProgress = true;
 					_audioSource.clip = LandSound;
 					_audioSource.Play();
-					Avatar.instance.Land();
                     //SkateboardJoint.breakForce = float.PositiveInfinity;
                     //SkateboardJoint.breakTorque = float.PositiveInfinity;
 					_startLerpTime = Time.time;

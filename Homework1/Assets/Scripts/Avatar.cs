@@ -25,8 +25,6 @@ public class Avatar : MonoBehaviour {
     public Rigidbody Rider;
     public Joint SkateJoint;
 
-    public GameManager GameManager;
-
     public GameObject SkeletonParent;
 
     private float _pedalStrength = 5.0f;
@@ -34,18 +32,9 @@ public class Avatar : MonoBehaviour {
     private float _gravityRotationModifier = 1.0f;
     // private float _rotationModifier = 50f;
     private float _rotationModifier = 5f;
-    private float _currentOrientation = 0f;
     private float _aerialRotationModifier = 200f;
     private float _aerialTiltModifier = 50f;
-    private Vector3 _curNormal = Vector3.up; // smoothed terrain normal
-    private float _speedModifier = 0.2f;
     private float _maxSpeed = 50f;
-    private float _speed = 0.0f;
-    private float _decay = 0.001f;
-    private float _gravity = 3.0f;
-    private float _decayAirtime = 0.005f;
-    private float _previousAccel = 0.0f; // used for compound acceleration
-    private long _framesMaxAccel = 0; // used for compound acceleration
     private float _groundDistance;
 
     private float _currentJumpScore = 0.0f;
@@ -54,17 +43,12 @@ public class Avatar : MonoBehaviour {
     public float _jumpStartTime = 0.0f;
     private bool _dead = false;
 
-    private bool _isOnPlane = true;
-    private Vector3 _initialPosition;
-    private Quaternion _initialRotation;
     private Vector3 _launchNormal;
     private Vector3 _launchForward;
-    private Vector3 moveDirection = Vector3.zero;
     private Animator _animator;
     private AudioSource _audioSource;
     public AudioClip[] Clips;
     private Collider _riderCollider;
-    private Collider _skateboardCollider;
     private bool _ragdoll = false;
 
     public static Avatar instance;
@@ -74,11 +58,7 @@ public class Avatar : MonoBehaviour {
         if (!Avatar.instance) {
             instance = this;
         }
-
-        _initialPosition = transform.position;
-        _initialRotation = transform.rotation;
         _riderCollider = Rider.GetComponent<CapsuleCollider>();
-        _skateboardCollider = Skateboard.GetComponent<BoxCollider>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = Clips[0];
@@ -105,7 +85,6 @@ public class Avatar : MonoBehaviour {
     	var childrenRigidbodies = SkeletonParent.GetComponentsInChildren<Rigidbody>();
     	var childrenCollidres = SkeletonParent.GetComponentsInChildren<Collider>();
     	if (onOff) {
-    		// CameraFollower.target = GameObject.Find("EthanGlasses").transform;
     		CameraFollower.IgnoreAllRotation = true;
     	}
     	Rider.isKinematic = onOff;
@@ -148,7 +127,11 @@ public class Avatar : MonoBehaviour {
             Quaternion q = Quaternion.AngleAxis(_rotationModifier * steer, Skateboard.transform.up) * Skateboard.transform.rotation;
             Skateboard.MoveRotation(q);
             float mag = Skateboard.velocity.magnitude;
-            Skateboard.velocity = Skateboard.transform.forward * mag * 1f;
+            if (SkateboardPhysics.Switch) {
+                Skateboard.velocity = -Skateboard.transform.forward * mag * 1f;
+            } else {
+                Skateboard.velocity = Skateboard.transform.forward * mag * 1f;
+            }
             // Skateboard.AddRelativeTorque(Vector3.up * steer * _rotationModifier * Time.deltaTime);
         }
 
@@ -164,7 +147,6 @@ public class Avatar : MonoBehaviour {
 
     void EndGame() {
         _dead = true;
-        Debug.Log("ending game");
         Rider.useGravity = true;
         Rider.mass = 200f;
         _audioSource.Stop();
@@ -177,7 +159,9 @@ public class Avatar : MonoBehaviour {
         Skateboard.velocity *= 0.1f;
         Rider.mass = 10f;
         _ragdoll = true;
-        GameManager.instance.ShowDeadUI();
+        if (!GameManager.instance.IsInFinalEndgame()) {
+            GameManager.instance.ShowDeadUI();
+        }
         _audioSource.Play();
     }
 
@@ -187,7 +171,6 @@ public class Avatar : MonoBehaviour {
                 if (!_dead) {
                     EndGame();
                 }
-                Debug.Log("Rider collider hit the ground." + point.otherCollider.gameObject.name);
 				EndGame();
 				break;
     		};
@@ -196,10 +179,6 @@ public class Avatar : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision) {
         EndGame();
-    }
-
-    void Pedal() {
-        Skateboard.AddRelativeForce(Vector3.forward * _pedalStrength * 80, ForceMode.Acceleration);
     }
 
     public void Land() {
@@ -228,7 +207,7 @@ public class Avatar : MonoBehaviour {
             }
         	CameraFollower.IgnoreLateral = false;
         	if (Input.GetKeyDown(KeyCode.W)) {
-        		Pedal();
+        		SkateboardPhysics.Pedal(_pedalStrength);
         	}
             if (Input.GetKeyDown(Pop))
             {
@@ -277,6 +256,7 @@ public class Avatar : MonoBehaviour {
         		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier * 1f);
     		}
     		if (Input.GetKey(SpinLeft)) {
+                _currentJumpScore += _aerialRotationModifier * _rotationScoreModifier;
         		Rider.transform.Rotate(_launchNormal * Time.deltaTime * _aerialRotationModifier * -1f);
     		}
     		if (Input.GetKey(FlipUp)) {
