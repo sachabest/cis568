@@ -1,0 +1,791 @@
+﻿[2016.02.09-16.53.14:081][  0]Log file open, 02/09/16 11:53:14
+[2016.02.09-16.53.14:081][  0]LogInit:Display: Running engine for game: AsteroidsBP
+[2016.02.09-16.53.14:081][  0]LogPlatformFile: Not using cached read wrapper
+[2016.02.09-16.53.14:081][  0]LogInit:Display: RandInit(-267622972) SRandInit(-267622971).
+[2016.02.09-16.53.14:081][  0]LogTaskGraph: Started task graph with 4 named threads and 7 total threads.
+[2016.02.09-16.53.14:081][  0]LogStats: Stats thread started at 0.073579
+[2016.02.09-16.53.14:081][  0]LogInit: Version: 4.10.2-2818068+++depot+UE4-Releases+4.10
+[2016.02.09-16.53.14:081][  0]LogInit: API Version: 2758231
+[2016.02.09-16.53.14:081][  0]LogInit: Compiled (64-bit): Jan  6 2016 17:36:42
+[2016.02.09-16.53.14:081][  0]LogInit: Compiled with Visual C++: 19.00.23026.00
+[2016.02.09-16.53.14:081][  0]LogInit: Build Configuration: Development
+[2016.02.09-16.53.14:081][  0]LogInit: Branch Name: ++depot+UE4-Releases+4.10
+[2016.02.09-16.53.14:081][  0]LogInit: Command line: 
+[2016.02.09-16.53.14:081][  0]LogInit: Base directory: C:/Program Files/Epic Games/4.10/Engine/Binaries/Win64/
+[2016.02.09-16.53.14:081][  0]LogInit: Rocket: 1
+[2016.02.09-16.53.14:086][  0]LogInit: Using libcurl 7.41.0
+[2016.02.09-16.53.14:086][  0]LogInit:  - built for x86_64-pc-win32
+[2016.02.09-16.53.14:086][  0]LogInit:  - supports SSL with WinSSL
+[2016.02.09-16.53.14:086][  0]LogInit:  - other features:
+[2016.02.09-16.53.14:086][  0]LogInit:      CURL_VERSION_SSL
+[2016.02.09-16.53.14:086][  0]LogInit:      CURL_VERSION_IPV6
+[2016.02.09-16.53.14:086][  0]LogInit:      CURL_VERSION_ASYNCHDNS
+[2016.02.09-16.53.14:086][  0]LogInit:      CURL_VERSION_LARGEFILE
+[2016.02.09-16.53.14:086][  0]LogInit:      CURL_VERSION_IDN
+[2016.02.09-16.53.14:086][  0]LogInit:  CurlRequestOptions (configurable via config and command line):
+[2016.02.09-16.53.14:086][  0]LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+[2016.02.09-16.53.14:086][  0]LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+[2016.02.09-16.53.14:086][  0]LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+[2016.02.09-16.53.14:086][  0]LogInit:  - CertBundlePath = nullptr  - Libcurl will use whatever was configured at build time.
+[2016.02.09-16.53.14:092][  0]LogInit: Presizing for 0 objects not considered by GC, pre-allocating 0 bytes.
+[2016.02.09-16.53.14:097][  0]LogInit: Object subsystem initialized
+[2016.02.09-16.53.14:100][  0]LogInit: Selected Device Profile: [Windows]
+[2016.02.09-16.53.14:100][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2016.02.09-16.53.14:108][  0]LogInit: Computer: BEST-OSX-BC
+[2016.02.09-16.53.14:108][  0]LogInit: User: SachaBest
+[2016.02.09-16.53.14:108][  0]LogInit: CPU Page size=4096, Cores=4
+[2016.02.09-16.53.14:108][  0]LogInit: High frequency timer resolution =2.728067 MHz
+[2016.02.09-16.53.14:108][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2016.02.09-16.53.14:108][  0]LogMemory: Platform Memory Stats for Windows
+[2016.02.09-16.53.14:108][  0]LogMemory: Process Physical Memory: 56.05 MB used, 56.05 MB peak
+[2016.02.09-16.53.14:108][  0]LogMemory: Process Virtual Memory: 54.94 MB used, 54.94 MB peak
+[2016.02.09-16.53.14:108][  0]LogMemory: Physical Memory: 9061.82 MB used, 16292.25 MB total
+[2016.02.09-16.53.14:108][  0]LogMemory: Virtual Memory: 384.00 MB used, 134217728.00 MB total
+[2016.02.09-16.53.14:136][  0]LogTextLocalizationManager: No specific translations for ('en-US') exist, so ('en') translations will be used.
+[2016.02.09-16.53.14:531][  0]LogD3D11RHI: Found D3D11 adapter 0: NVIDIA GeForce GT 750M    (Feature Level 11_0)
+[2016.02.09-16.53.14:531][  0]LogD3D11RHI: Adapter has 1988MB of dedicated video memory, 0MB of dedicated system memory, and 8146MB of shared system memory, 1 output[s]
+[2016.02.09-16.53.14:532][  0]LogD3D11RHI: Found D3D11 adapter 1: Microsoft Basic Render Driver (Feature Level 11_0)
+[2016.02.09-16.53.14:532][  0]LogD3D11RHI: Adapter has 0MB of dedicated video memory, 0MB of dedicated system memory, and 8146MB of shared system memory, 0 output[s]
+[2016.02.09-16.53.14:532][  0]LogD3D11RHI: Chosen D3D11 Adapter Id = 0
+[2016.02.09-16.53.14:536][  0]LogD3D11RHI: !Direct3DDevice
+[2016.02.09-16.53.14:536][  0]LogRHI: Texture pool is 1361 MB (70% of 1945 MB)
+[2016.02.09-16.53.14:550][  0]LogD3D11RHI: Async texture creation enabled
+[2016.02.09-16.53.14:565][  0]LogShaderCompilers: Guid format shader working directory is -20 characters bigger than the processId version (../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Intermediate/Shaders/WorkingDirectory/11304/).
+[2016.02.09-16.53.14:565][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/SACHAB~1/AppData/Local/Temp/UnrealShaderWorkingDir/C7043ED2486A80555957BA9343D50EDA/'.
+[2016.02.09-16.53.14:565][  0]LogShaderCompilers:Display: Using Local Shader Compiler.
+[2016.02.09-16.53.15:245][  0]LogTemp:Display: Loaded TP AllDesktopTargetPlatform
+[2016.02.09-16.53.15:250][  0]LogTemp:Display: Loaded TP WindowsClientTargetPlatform
+[2016.02.09-16.53.15:254][  0]LogTemp:Display: Loaded TP WindowsNoEditorTargetPlatform
+[2016.02.09-16.53.15:259][  0]LogTemp:Display: Loaded TP WindowsServerTargetPlatform
+[2016.02.09-16.53.15:263][  0]LogTemp:Display: Loaded TP WindowsTargetPlatform
+[2016.02.09-16.53.15:265][  0]LogTemp:Display: Loaded TP AndroidTargetPlatform
+[2016.02.09-16.53.15:267][  0]LogTemp:Display: Loaded TP Android_ASTCTargetPlatform
+[2016.02.09-16.53.15:269][  0]LogTemp:Display: Loaded TP Android_ATCTargetPlatform
+[2016.02.09-16.53.15:272][  0]LogTemp:Display: Loaded TP Android_DXTTargetPlatform
+[2016.02.09-16.53.15:293][  0]LogTemp:Display: Loaded TP Android_ETC1TargetPlatform
+[2016.02.09-16.53.15:311][  0]LogTemp:Display: Loaded TP Android_ETC2TargetPlatform
+[2016.02.09-16.53.15:332][  0]LogTemp:Display: Loaded TP Android_MultiTargetPlatform
+[2016.02.09-16.53.15:332][  0]LogTemp:Display: Loaded TP Android_PVRTCTargetPlatform
+[2016.02.09-16.53.15:334][  0]LogTemp:Display: Loaded TP HTML5TargetPlatform
+[2016.02.09-16.53.15:361][  0]LogTemp:Display: Loaded TP IOSTargetPlatform
+[2016.02.09-16.53.15:367][  0]LogTemp:Display: Loaded TP LinuxNoEditorTargetPlatform
+[2016.02.09-16.53.15:372][  0]LogTemp:Display: Loaded TP LinuxServerTargetPlatform
+[2016.02.09-16.53.15:378][  0]LogTemp:Display: Loaded TP LinuxTargetPlatform
+[2016.02.09-16.53.15:378][  0]LogTargetPlatformManager:Display: Building Assets For Windows
+[2016.02.09-16.53.15:495][  0]LogDerivedDataCache:Display: Max Cache Size: 512 MB
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache: Loaded boot cache 0.04s 43MB C:/Users/Sacha Best/AppData/Local/UnrealEngine/4.10/DerivedDataCache/Boot.ddc.
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache:Display: Loaded Boot cache: C:/Users/Sacha Best/AppData/Local/UnrealEngine/4.10/DerivedDataCache/Boot.ddc
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2016.02.09-16.53.15:540][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2016.02.09-16.53.15:590][  0]LogDerivedDataCache:Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2016.02.09-16.53.15:602][  0]LogDerivedDataCache: Using Local data cache path C:/Users/Sacha Best/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2016.02.09-16.53.15:747][  0]LogInit: Selected Device Profile: [Windows]
+[2016.02.09-16.53.15:749][  0]LogContentStreaming: Texture pool size is 0.000000MB
+[2016.02.09-16.53.15:846][  0]LogMeshUtilities: No automatic mesh reduction module available
+[2016.02.09-16.53.15:846][  0]LogMeshUtilities: No automatic mesh merging module available
+[2016.02.09-16.53.16:027][  0]LogInit: WinSock: version 1.1 (2.2), MaxSocks=32767, MaxUdp=65467
+[2016.02.09-16.53.16:699][  0]UdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2016.02.09-16.53.16:791][  0]LogAssetRegistry: FAssetRegistry took 0.0113 seconds to start up
+[2016.02.09-16.53.16:931][  0]SourceControl: Info Source control is disabled
+[2016.02.09-16.53.16:956][  0]SourceControl: Info Source control is disabled
+[2016.02.09-16.53.16:967][  0]SourceControl: Info Source control is disabled
+[2016.02.09-16.53.16:978][  0]SourceControl: Info Source control is disabled
+[2016.02.09-16.53.17:217][  0]LogObj: 28633 objects as part of root set at end of initial load.
+[2016.02.09-16.53.17:217][  0]LogUObjectAllocator: 6099752 out of 0 bytes used by permanent object pool.
+[2016.02.09-16.53.17:276][  0]LogEngine: Initializing Engine...
+[2016.02.09-16.53.17:277][  0]OCULUS: Info: 02/09/16 16:53:17: [CAPI] LibOVR module is located at C:\Windows\SYSTEM32\LibOVRRT64_0_8.dll
+
+[2016.02.09-16.53.17:277][  0]OCULUS: Info: 02/09/16 16:53:17: [IPC] Call Stats for SetInitialState : x1: C2S=16.4952, S2C=4.03216, Runtime=48.3859 (microseconds) C2Ssize=80, S2Csize=81 (bytes)
+
+[2016.02.09-16.53.17:277][  0]OCULUS: Info: 02/09/16 16:53:17: [IPC] Call Stats for IsLatencyTesterAvailable : x1: C2S=4.39872, S2C=2.56592, Runtime=1.09968 (microseconds) C2Ssize=33, S2Csize=18 (bytes)
+
+[2016.02.09-16.53.17:289][  0]LogHMD: SteamVR failed to initialize.  Err: 110
+[2016.02.09-16.53.17:409][  0]LogAIModule: Creating AISystem for world NewWorld
+[2016.02.09-16.53.17:416][  0]LogInit: XAudio2 using 'Speakers (Cirrus Logic CS4208 (AB 94))' : 4 channels at 48 kHz using 32 bits per sample (channel mask 0x33)
+[2016.02.09-16.53.17:434][  0]LogInit: FAudioDevice initialized.
+[2016.02.09-16.53.17:460][  0]LogDerivedDataCache: Saved boot cache 0.03s 43MB C:/Users/Sacha Best/AppData/Local/UnrealEngine/4.10/DerivedDataCache/Boot.ddc.
+[2016.02.09-16.53.17:465][  0]LogInit: Texture streaming: Enabled
+[2016.02.09-16.53.17:471][  0]LogAnalytics: Creating configured Analytics provider AnalyticsET
+[2016.02.09-16.53.17:471][  0]LogAnalytics: [UEEditor.Rocket.Release] APIServer = http://et2.epicgames.com/ET2/. AppVersion = 4.10.2-2818068+++depot+UE4-Releases+4.10
+[2016.02.09-16.53.17:472][  0]LogAnalytics: [UEEditor.Rocket.Release] SetUserId 407ccbab4d00b2b7d535499e4e89fdf3|acb44571abe94f89bbbde4b9f914ed22|e3a9111c-6e9f-46ad-9883-4b0ab3dd2350
+[2016.02.09-16.53.17:472][  0]LogAnalytics: [UEEditor.Rocket.Release] AnalyticsET::StartSession
+[2016.02.09-16.53.17:485][  0]LogInit: Transaction tracking system initialized
+[2016.02.09-16.53.17:527][  0]BlueprintLog: New page: Editor Load
+[2016.02.09-16.53.17:857][  0]LocalizationService: Info Localization service is disabled
+[2016.02.09-16.53.18:117][  0]LogConsoleResponse:Display: 
+[2016.02.09-16.53.18:211][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/' took 0.01s
+[2016.02.09-16.53.18:211][  0]LogCook:Display: Done creating registry. It took  0.00s.
+[2016.02.09-16.53.18:278][  0]SourceControl: Info Source control is disabled
+[2016.02.09-16.53.18:280][  0]LogFactory: FactoryCreateBinary: PackFactory with PackFactory (0 0 C:/Program Files/Epic Games/4.10/FeaturePacks/StarterContent.upack)
+[2016.02.09-16.53.18:291][  0]LogPackFactory: Finished extracting 8 files (including 0 errors).
+[2016.02.09-16.53.18:296][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Floor_400x400.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Floor_400x400.uasset"
+[2016.02.09-16.53.18:302][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Pillar_50x500.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Pillar_50x500.uasset"
+[2016.02.09-16.53.18:307][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/SM_AssetPlatform.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/SM_AssetPlatform.uasset"
+[2016.02.09-16.53.18:313][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_400x200.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_400x200.uasset"
+[2016.02.09-16.53.18:317][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_400x300.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_400x300.uasset"
+[2016.02.09-16.53.18:321][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_400x400.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_400x400.uasset"
+[2016.02.09-16.53.18:325][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_500x500.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_500x500.uasset"
+[2016.02.09-16.53.18:330][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_Door_400x300.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_Door_400x300.uasset"
+[2016.02.09-16.53.18:334][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_Door_400x400.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_Door_400x400.uasset"
+[2016.02.09-16.53.18:338][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_Window_400x300.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_Window_400x300.uasset"
+[2016.02.09-16.53.18:343][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Architecture/Wall_Window_400x400.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Wall_Window_400x400.uasset"
+[2016.02.09-16.53.18:349][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Collapse01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Collapse01.uasset"
+[2016.02.09-16.53.18:353][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Collapse02.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Collapse02.uasset"
+[2016.02.09-16.53.18:357][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Collapse_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Collapse_Cue.uasset"
+[2016.02.09-16.53.18:363][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Explosion01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Explosion01.uasset"
+[2016.02.09-16.53.18:369][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Explosion02.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Explosion02.uasset"
+[2016.02.09-16.53.18:372][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Explosion_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Explosion_Cue.uasset"
+[2016.02.09-16.53.18:377][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Fire01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Fire01.uasset"
+[2016.02.09-16.53.18:380][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Fire01_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Fire01_Cue.uasset"
+[2016.02.09-16.53.18:387][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Fire_Sparks01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Fire_Sparks01.uasset"
+[2016.02.09-16.53.18:390][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Fire_Sparks01_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Fire_Sparks01_Cue.uasset"
+[2016.02.09-16.53.18:396][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Light01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Light01.uasset"
+[2016.02.09-16.53.18:398][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Light01_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Light01_Cue.uasset"
+[2016.02.09-16.53.18:403][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Light02.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Light02.uasset"
+[2016.02.09-16.53.18:406][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Light02_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Light02_Cue.uasset"
+[2016.02.09-16.53.18:412][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Smoke01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Smoke01.uasset"
+[2016.02.09-16.53.18:414][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Smoke01_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Smoke01_Cue.uasset"
+[2016.02.09-16.53.18:418][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Background_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Background_Cue.uasset"
+[2016.02.09-16.53.18:428][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Birds01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Birds01.uasset"
+[2016.02.09-16.53.18:448][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Music01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Music01.uasset"
+[2016.02.09-16.53.18:451][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Music_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Music_Cue.uasset"
+[2016.02.09-16.53.18:459][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Wind05.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Wind05.uasset"
+[2016.02.09-16.53.18:468][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Starter_Wind06.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Starter_Wind06.uasset"
+[2016.02.09-16.53.18:473][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Steam01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Steam01.uasset"
+[2016.02.09-16.53.18:476][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Audio/Steam01_Cue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Audio/Steam01_Cue.uasset"
+[2016.02.09-16.53.18:481][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset"
+[2016.02.09-16.53.18:487][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_Effect_Explosion.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_Effect_Explosion.uasset"
+[2016.02.09-16.53.18:493][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_Effect_Fire.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_Effect_Fire.uasset"
+[2016.02.09-16.53.18:499][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_Effect_Smoke.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_Effect_Smoke.uasset"
+[2016.02.09-16.53.18:504][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_Effect_Sparks.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_Effect_Sparks.uasset"
+[2016.02.09-16.53.18:509][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_Effect_Steam.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_Effect_Steam.uasset"
+[2016.02.09-16.53.18:516][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset"
+[2016.02.09-16.53.18:521][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/BP_LightStudio.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/BP_LightStudio.uasset"
+[2016.02.09-16.53.18:525][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset"
+[2016.02.09-16.53.18:529][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset"
+[2016.02.09-16.53.18:535][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset"
+[2016.02.09-16.53.18:540][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset"
+[2016.02.09-16.53.18:546][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset"
+[2016.02.09-16.53.18:552][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/Skybox.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/Skybox.uasset"
+[2016.02.09-16.53.18:557][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset"
+[2016.02.09-16.53.18:559][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset"
+[2016.02.09-16.53.18:830][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
+[2016.02.09-16.53.18:836][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Maps/Advanced_Lighting.umap" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Maps/Advanced_Lighting.umap"
+[2016.02.09-16.53.18:845][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Maps/Minimal_Default.umap" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Maps/Minimal_Default.umap"
+[2016.02.09-16.53.18:880][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Maps/StarterMap.umap" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Maps/StarterMap.umap"
+[2016.02.09-16.53.18:885][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_AssetPlatform.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_AssetPlatform.uasset"
+[2016.02.09-16.53.18:891][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Basic_Floor.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Basic_Floor.uasset"
+[2016.02.09-16.53.18:895][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Basic_Wall.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Basic_Wall.uasset"
+[2016.02.09-16.53.18:900][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Brick_Clay_Beveled.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Brick_Clay_Beveled.uasset"
+[2016.02.09-16.53.18:905][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Brick_Clay_New.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Brick_Clay_New.uasset"
+[2016.02.09-16.53.18:909][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Brick_Clay_Old.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Brick_Clay_Old.uasset"
+[2016.02.09-16.53.18:914][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Brick_Cut_Stone.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Brick_Cut_Stone.uasset"
+[2016.02.09-16.53.18:918][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Brick_Hewn_Stone.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Brick_Hewn_Stone.uasset"
+[2016.02.09-16.53.18:923][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Ceramic_Tile_Checker.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Ceramic_Tile_Checker.uasset"
+[2016.02.09-16.53.18:929][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_CobbleStone_Pebble.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_CobbleStone_Pebble.uasset"
+[2016.02.09-16.53.18:934][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_CobbleStone_Rough.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_CobbleStone_Rough.uasset"
+[2016.02.09-16.53.18:939][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_CobbleStone_Smooth.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_CobbleStone_Smooth.uasset"
+[2016.02.09-16.53.18:944][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_ColorGrid_LowSpec.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_ColorGrid_LowSpec.uasset"
+[2016.02.09-16.53.18:949][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Concrete_Grime.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Concrete_Grime.uasset"
+[2016.02.09-16.53.18:953][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Concrete_Panels.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Concrete_Panels.uasset"
+[2016.02.09-16.53.18:958][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Concrete_Poured.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Concrete_Poured.uasset"
+[2016.02.09-16.53.18:963][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Concrete_Tiles.uasset"
+[2016.02.09-16.53.18:967][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Glass.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Glass.uasset"
+[2016.02.09-16.53.18:972][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Ground_Grass.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Ground_Grass.uasset"
+[2016.02.09-16.53.18:976][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Ground_Gravel.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Ground_Gravel.uasset"
+[2016.02.09-16.53.18:981][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Ground_Moss.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Ground_Moss.uasset"
+[2016.02.09-16.53.18:985][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Brushed_Nickel.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Brushed_Nickel.uasset"
+[2016.02.09-16.53.18:989][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Burnished_Steel.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Burnished_Steel.uasset"
+[2016.02.09-16.53.18:994][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Chrome.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Chrome.uasset"
+[2016.02.09-16.53.18:999][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Copper.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Copper.uasset"
+[2016.02.09-16.53.19:003][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Gold.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Gold.uasset"
+[2016.02.09-16.53.19:009][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Rust.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Rust.uasset"
+[2016.02.09-16.53.19:014][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Metal_Steel.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Metal_Steel.uasset"
+[2016.02.09-16.53.19:019][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Rock_Basalt.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Rock_Basalt.uasset"
+[2016.02.09-16.53.19:026][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Rock_Marble_Polished.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Rock_Marble_Polished.uasset"
+[2016.02.09-16.53.19:034][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Rock_Sandstone.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Rock_Sandstone.uasset"
+[2016.02.09-16.53.19:039][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Rock_Slate.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Rock_Slate.uasset"
+[2016.02.09-16.53.19:047][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Tech_Checker_Dot.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Tech_Checker_Dot.uasset"
+[2016.02.09-16.53.19:053][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Tech_Hex_Tile.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Tech_Hex_Tile.uasset"
+[2016.02.09-16.53.19:059][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Tech_Hex_Tile_Pulse.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Tech_Hex_Tile_Pulse.uasset"
+[2016.02.09-16.53.19:064][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Tech_Panel.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Tech_Panel.uasset"
+[2016.02.09-16.53.19:068][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Water_Lake.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Water_Lake.uasset"
+[2016.02.09-16.53.19:074][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Water_Ocean.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Water_Ocean.uasset"
+[2016.02.09-16.53.19:080][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Polished.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Polished.uasset"
+[2016.02.09-16.53.19:085][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Worn.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Worn.uasset"
+[2016.02.09-16.53.19:090][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Wood_Oak.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Wood_Oak.uasset"
+[2016.02.09-16.53.19:094][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Wood_Pine.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Wood_Pine.uasset"
+[2016.02.09-16.53.19:099][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Materials/M_Wood_Walnut.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Materials/M_Wood_Walnut.uasset"
+[2016.02.09-16.53.19:104][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Ambient_Dust.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Ambient_Dust.uasset"
+[2016.02.09-16.53.19:110][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Explosion.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Explosion.uasset"
+[2016.02.09-16.53.19:116][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Fire.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Fire.uasset"
+[2016.02.09-16.53.19:121][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Smoke.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Smoke.uasset"
+[2016.02.09-16.53.19:126][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Sparks.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Sparks.uasset"
+[2016.02.09-16.53.19:131][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/P_Steam_Lit.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/P_Steam_Lit.uasset"
+[2016.02.09-16.53.19:135][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Burst.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Burst.uasset"
+[2016.02.09-16.53.19:140][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset"
+[2016.02.09-16.53.19:145][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset"
+[2016.02.09-16.53.19:149][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset"
+[2016.02.09-16.53.19:154][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/m_flare_01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/m_flare_01.uasset"
+[2016.02.09-16.53.19:159][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset"
+[2016.02.09-16.53.19:165][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset"
+[2016.02.09-16.53.19:170][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset"
+[2016.02.09-16.53.19:176][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset"
+[2016.02.09-16.53.19:182][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Particles/Materials/M_Spark.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Particles/Materials/M_Spark.uasset"
+[2016.02.09-16.53.19:189][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/MaterialSphere.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/MaterialSphere.uasset"
+[2016.02.09-16.53.19:195][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Bush.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Bush.uasset"
+[2016.02.09-16.53.19:201][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Chair.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Chair.uasset"
+[2016.02.09-16.53.19:207][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_CornerFrame.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_CornerFrame.uasset"
+[2016.02.09-16.53.19:213][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Couch.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Couch.uasset"
+[2016.02.09-16.53.19:219][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Door.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Door.uasset"
+[2016.02.09-16.53.19:225][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_DoorFrame.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_DoorFrame.uasset"
+[2016.02.09-16.53.19:230][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_GlassWindow.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_GlassWindow.uasset"
+[2016.02.09-16.53.19:235][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset"
+[2016.02.09-16.53.19:241][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Lamp_Wall.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Lamp_Wall.uasset"
+[2016.02.09-16.53.19:250][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset"
+[2016.02.09-16.53.19:256][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_PillarFrame.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_PillarFrame.uasset"
+[2016.02.09-16.53.19:262][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_PillarFrame300.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_PillarFrame300.uasset"
+[2016.02.09-16.53.19:267][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Rock.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Rock.uasset"
+[2016.02.09-16.53.19:273][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Shelf.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Shelf.uasset"
+[2016.02.09-16.53.19:280][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Stairs.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Stairs.uasset"
+[2016.02.09-16.53.19:285][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_Statue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_Statue.uasset"
+[2016.02.09-16.53.19:292][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_TableRound.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_TableRound.uasset"
+[2016.02.09-16.53.19:297][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/SM_WindowFrame.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/SM_WindowFrame.uasset"
+[2016.02.09-16.53.19:302][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Bush.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Bush.uasset"
+[2016.02.09-16.53.19:307][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Chair.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Chair.uasset"
+[2016.02.09-16.53.19:312][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Door.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Door.uasset"
+[2016.02.09-16.53.19:317][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Frame.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Frame.uasset"
+[2016.02.09-16.53.19:322][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Lamp.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Lamp.uasset"
+[2016.02.09-16.53.19:327][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset"
+[2016.02.09-16.53.19:332][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset"
+[2016.02.09-16.53.19:336][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Rock.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Rock.uasset"
+[2016.02.09-16.53.19:341][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Shelf.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Shelf.uasset"
+[2016.02.09-16.53.19:346][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_Statue.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_Statue.uasset"
+[2016.02.09-16.53.19:357][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_StatueGlass.uasset"
+[2016.02.09-16.53.19:362][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Props/Materials/M_TableRound.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Props/Materials/M_TableRound.uasset"
+[2016.02.09-16.53.19:367][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Cone.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Cone.uasset"
+[2016.02.09-16.53.19:372][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Cube.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Cube.uasset"
+[2016.02.09-16.53.19:378][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Cylinder.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Cylinder.uasset"
+[2016.02.09-16.53.19:383][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_NarrowCapsule.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_NarrowCapsule.uasset"
+[2016.02.09-16.53.19:389][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Pipe.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Pipe.uasset"
+[2016.02.09-16.53.19:394][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Pipe_180.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Pipe_180.uasset"
+[2016.02.09-16.53.19:399][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Pipe_90.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Pipe_90.uasset"
+[2016.02.09-16.53.19:405][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Plane.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Plane.uasset"
+[2016.02.09-16.53.19:410][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_QuadPyramid.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_QuadPyramid.uasset"
+[2016.02.09-16.53.19:416][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Sphere.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Sphere.uasset"
+[2016.02.09-16.53.19:423][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Torus.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Torus.uasset"
+[2016.02.09-16.53.19:429][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Trim.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Trim.uasset"
+[2016.02.09-16.53.19:434][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Trim_90_In.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Trim_90_In.uasset"
+[2016.02.09-16.53.19:439][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Trim_90_Out.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Trim_90_Out.uasset"
+[2016.02.09-16.53.19:444][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_TriPyramid.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_TriPyramid.uasset"
+[2016.02.09-16.53.19:449][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Tube.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Tube.uasset"
+[2016.02.09-16.53.19:454][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Wedge_A.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Wedge_A.uasset"
+[2016.02.09-16.53.19:460][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_Wedge_B.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_Wedge_B.uasset"
+[2016.02.09-16.53.19:465][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Shapes/Shape_WideCapsule.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Shapes/Shape_WideCapsule.uasset"
+[2016.02.09-16.53.19:484][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset"
+[2016.02.09-16.53.19:503][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset"
+[2016.02.09-16.53.19:522][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset"
+[2016.02.09-16.53.19:537][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset"
+[2016.02.09-16.53.19:559][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset"
+[2016.02.09-16.53.19:578][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset"
+[2016.02.09-16.53.19:605][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset"
+[2016.02.09-16.53.19:627][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset"
+[2016.02.09-16.53.19:655][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset"
+[2016.02.09-16.53.19:673][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset"
+[2016.02.09-16.53.19:690][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset"
+[2016.02.09-16.53.19:707][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset"
+[2016.02.09-16.53.19:729][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset"
+[2016.02.09-16.53.19:734][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Burst_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Burst_M.uasset"
+[2016.02.09-16.53.19:742][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Bush_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Bush_D.uasset"
+[2016.02.09-16.53.19:748][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Bush_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Bush_N.uasset"
+[2016.02.09-16.53.19:755][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset"
+[2016.02.09-16.53.19:762][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset"
+[2016.02.09-16.53.19:769][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Chair_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Chair_M.uasset"
+[2016.02.09-16.53.19:778][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Chair_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Chair_N.uasset"
+[2016.02.09-16.53.19:784][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Checker_Noise_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Checker_Noise_M.uasset"
+[2016.02.09-16.53.19:810][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset"
+[2016.02.09-16.53.19:819][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset"
+[2016.02.09-16.53.19:846][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset"
+[2016.02.09-16.53.19:856][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset"
+[2016.02.09-16.53.19:867][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset"
+[2016.02.09-16.53.19:883][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset"
+[2016.02.09-16.53.19:899][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset"
+[2016.02.09-16.53.19:920][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset"
+[2016.02.09-16.53.19:944][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset"
+[2016.02.09-16.53.19:965][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset"
+[2016.02.09-16.53.19:982][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset"
+[2016.02.09-16.53.20:007][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset"
+[2016.02.09-16.53.20:026][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset"
+[2016.02.09-16.53.20:040][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset"
+[2016.02.09-16.53.20:055][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset"
+[2016.02.09-16.53.20:073][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset"
+[2016.02.09-16.53.20:075][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset"
+[2016.02.09-16.53.20:086][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset"
+[2016.02.09-16.53.20:092][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Door_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Door_M.uasset"
+[2016.02.09-16.53.20:099][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Door_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Door_N.uasset"
+[2016.02.09-16.53.20:103][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Dust_Particle_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Dust_Particle_D.uasset"
+[2016.02.09-16.53.20:115][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Explosion_SubUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Explosion_SubUV.uasset"
+[2016.02.09-16.53.20:121][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Fire_SubUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Fire_SubUV.uasset"
+[2016.02.09-16.53.20:127][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset"
+[2016.02.09-16.53.20:132][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Frame_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Frame_M.uasset"
+[2016.02.09-16.53.20:139][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Frame_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Frame_N.uasset"
+[2016.02.09-16.53.20:142][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Gradinet_01.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Gradinet_01.uasset"
+[2016.02.09-16.53.20:169][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ground_Grass_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ground_Grass_D.uasset"
+[2016.02.09-16.53.20:193][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ground_Grass_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ground_Grass_N.uasset"
+[2016.02.09-16.53.20:217][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset"
+[2016.02.09-16.53.20:235][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset"
+[2016.02.09-16.53.20:263][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_ground_Moss_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_ground_Moss_D.uasset"
+[2016.02.09-16.53.20:283][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Ground_Moss_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Ground_Moss_N.uasset"
+[2016.02.09-16.53.20:289][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Lamp_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Lamp_M.uasset"
+[2016.02.09-16.53.20:298][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Lamp_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Lamp_N.uasset"
+[2016.02.09-16.53.20:322][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_MacroVariation.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_MacroVariation.uasset"
+[2016.02.09-16.53.20:344][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset"
+[2016.02.09-16.53.20:364][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Copper_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Copper_D.uasset"
+[2016.02.09-16.53.20:384][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Gold_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Gold_D.uasset"
+[2016.02.09-16.53.20:399][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Gold_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Gold_N.uasset"
+[2016.02.09-16.53.20:424][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Rust_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Rust_D.uasset"
+[2016.02.09-16.53.20:450][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Rust_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Rust_N.uasset"
+[2016.02.09-16.53.20:475][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Steel_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Steel_D.uasset"
+[2016.02.09-16.53.20:497][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Metal_Steel_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Metal_Steel_N.uasset"
+[2016.02.09-16.53.20:523][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset"
+[2016.02.09-16.53.20:543][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_RockMesh_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_RockMesh_M.uasset"
+[2016.02.09-16.53.20:564][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_RockMesh_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_RockMesh_N.uasset"
+[2016.02.09-16.53.20:601][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset"
+[2016.02.09-16.53.20:631][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset"
+[2016.02.09-16.53.20:648][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset"
+[2016.02.09-16.53.20:673][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset"
+[2016.02.09-16.53.20:706][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset"
+[2016.02.09-16.53.20:737][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Slate_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Slate_D.uasset"
+[2016.02.09-16.53.20:764][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Slate_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Slate_N.uasset"
+[2016.02.09-16.53.20:794][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset"
+[2016.02.09-16.53.20:805][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Shelf_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Shelf_M.uasset"
+[2016.02.09-16.53.20:817][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Shelf_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Shelf_N.uasset"
+[2016.02.09-16.53.20:826][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Single_Tile_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Single_Tile_N.uasset"
+[2016.02.09-16.53.20:841][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Smoke_SubUV.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Smoke_SubUV.uasset"
+[2016.02.09-16.53.20:858][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset"
+[2016.02.09-16.53.20:871][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Spark_Core.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Spark_Core.uasset"
+[2016.02.09-16.53.20:881][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Statue_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Statue_M.uasset"
+[2016.02.09-16.53.20:890][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Statue_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Statue_N.uasset"
+[2016.02.09-16.53.20:900][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_TableRound_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_TableRound_M.uasset"
+[2016.02.09-16.53.20:911][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_TableRound_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_TableRound_N.uasset"
+[2016.02.09-16.53.20:923][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Dot_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Dot_M.uasset"
+[2016.02.09-16.53.20:944][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Dot_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Dot_N.uasset"
+[2016.02.09-16.53.20:955][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset"
+[2016.02.09-16.53.20:965][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset"
+[2016.02.09-16.53.20:977][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Panel_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Panel_M.uasset"
+[2016.02.09-16.53.20:991][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Tech_Panel_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Tech_Panel_N.uasset"
+[2016.02.09-16.53.21:005][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Water_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Water_M.uasset"
+[2016.02.09-16.53.21:020][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Water_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Water_N.uasset"
+[2016.02.09-16.53.21:039][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset"
+[2016.02.09-16.53.21:053][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset"
+[2016.02.09-16.53.21:063][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset"
+[2016.02.09-16.53.21:081][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Oak_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Oak_D.uasset"
+[2016.02.09-16.53.21:100][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Oak_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Oak_N.uasset"
+[2016.02.09-16.53.21:123][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Pine_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Pine_D.uasset"
+[2016.02.09-16.53.21:134][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Pine_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Pine_N.uasset"
+[2016.02.09-16.53.21:152][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset"
+[2016.02.09-16.53.21:166][  0]LogPackFactory: Copied "../../../Samples/StarterContent/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset" to "../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset"
+[2016.02.09-16.53.21:237][  0]LogRenderer: Reallocating scene render targets to support 256x256 (Frame:2).
+[2016.02.09-16.53.21:282][  0]LogSavePackage: Save=10.602745ms
+[2016.02.09-16.53.21:282][  0]LogSavePackage: Moving '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/Floor_400x4008DC28424497B84050D968FBA51804AC4.tmp' to '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Floor_400x400.uasset'
+[2016.02.09-16.53.21:286][  0]LogSavePackage: Total save time: 21.619704ms
+[2016.02.09-16.53.21:286][  0]LogSavePackage:Display: Finished SavePackage ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Architecture/Floor_400x400.uasset
+[2016.02.09-16.53.21:286][  0]LogFeaturePack:Warning: Inserted 1 feature packs
+[2016.02.09-16.53.21:289][  0]Cmd: MAP LOAD FILE="../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/StarterContent/Maps/Minimal_Default.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2016.02.09-16.53.21:290][  0]LightingResults: New page: Lighting Build
+[2016.02.09-16.53.21:294][  0]MapCheck: New page: Map Check
+[2016.02.09-16.53.21:294][  0]LightingResults: New page: Lighting Build
+[2016.02.09-16.53.21:306][  0]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024F9BDFBB00
+[2016.02.09-16.53.21:708][  0]LogAIModule: Creating AISystem for world Minimal_Default
+[2016.02.09-16.53.21:712][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2016.02.09-16.53.21:712][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2016.02.09-16.53.21:746][  0]MapCheck: Info Map check complete: 0 Error(s), 0 Warning(s), took 33.034ms to complete.
+[2016.02.09-16.53.21:746][  0]LogFileHelpers: Loading map 'Minimal_Default' took 0.456
+[2016.02.09-16.53.21:923][  0]LogCollectionManager: Loaded 0 collections in 0.006554 seconds
+[2016.02.09-16.53.21:967][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/Collections/' took 0.01s
+[2016.02.09-16.53.21:967][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/Developers/SachaBest/Collections/' took 0.01s
+[2016.02.09-16.53.21:967][  0]LogFileCache: Scanning file cache for directory 'C:/Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/Collections/' took 0.01s
+[2016.02.09-16.53.21:967][  0]LogCollectionManager: Rebuilt the GUID cache for 0 collections in 0.000002 seconds
+[2016.02.09-16.53.21:977][  0]LogContentBrowser: Native class hierarchy populated in 0.0093 seconds. Added 1893 classes and 338 folders.
+[2016.02.09-16.53.21:986][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0004 seconds. Added 0 classes and 0 folders.
+[2016.02.09-16.53.22:032][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0003 seconds. Added 0 classes and 0 folders.
+[2016.02.09-16.53.22:043][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0003 seconds. Added 1 classes and 2 folders.
+[2016.02.09-16.53.22:060][  0]LogCrashTracker: Crashtracker disabled due to settings.
+[2016.02.09-16.53.22:066][  0]LogUObjectGlobals:Warning: Failed to find object 'Class None.'
+[2016.02.09-16.53.22:087][  0]LogLoad: Full Startup: 8.39 seconds (BP compile: 0.04 seconds)
+[2016.02.09-16.53.22:427][  0]LogOcInput: OculusInput is initialized. Init status 0. Runtime version: 0.8.0.0
+[2016.02.09-16.53.22:560][  0]LogContentStreaming: Texture pool size now 200 MB
+[2016.02.09-16.53.22:640][  0]LogRenderer: Reallocating scene render targets to support 904x456 (Frame:3).
+[2016.02.09-16.53.24:433][  6]LogAssetRegistry: Asset discovery search completed in 7.6540 seconds
+[2016.02.09-16.53.24:434][  6]LogCollectionManager: Rebuilt the object cache for 0 collections in 0.000001 seconds (found 0 objects)
+[2016.02.09-16.53.24:434][  6]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000031 seconds (updated 0 objects)
+[2016.02.09-16.54.26:210][991]LogLinker:Warning: Asset '../../../Engine/Content/ArtTools/RenderToTexture/Macros/RenderToTextureMacros.uasset' has been saved with empty engine version. The asset will be loaded but may be incompatible.
+[2016.02.09-16.54.26:501][991]LogContentBrowser: Native class hierarchy updated for 'BlueprintGraph' in 0.0006 seconds. Added 107 classes and 0 folders.
+[2016.02.09-16.54.26:823][992]LogRenderer: Reallocating scene render targets to support 904x708 (Frame:1935).
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:851][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:852][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.31:858][256]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:829][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:847][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:847][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:848][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:848][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:848][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.40:848][765]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:801][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:801][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:802][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:802][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:802][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:802][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.55.44:815][ 69]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.18:838][293]LogRenderer: Reallocating scene render targets to support 904x720 (Frame:7827).
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:493][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:494][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:494][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:494][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:502][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:503][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:503][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:503][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:503][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.27:503][248]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:984][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:984][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:984][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:985][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:986][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.35:994][116]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:744][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:744][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:744][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:744][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:745][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:751][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:752][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:752][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:752][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:752][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.40:752][629]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.42:826][793]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ShipBP" FILE="../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset" SILENT=true
+[2016.02.09-16.57.42:845][793]LogSavePackage: Save=17.664888ms
+[2016.02.09-16.57.42:845][793]LogSavePackage: Moving '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/ShipBPD80A36ED4DA1A2DA7B3E9FAA2C3A42F3.tmp' to '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset'
+[2016.02.09-16.57.42:846][793]LogSavePackage: Total save time: 19.716889ms
+[2016.02.09-16.57.42:846][793]LogSavePackage:Display: Finished SavePackage ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:852][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-16.57.57:859][460]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:279][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:279][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:280][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:280][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:280][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.00.02:280][642]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.04.01:506][780]LogFileHelpers: Editor autosave (incl. sublevels) for '/Game/StarterContent/Maps/Minimal_Default' took 0.025
+[2016.02.09-17.04.01:510][780]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/ShipBP] ([1] browsable assets)...
+[2016.02.09-17.04.01:519][780]OBJ SavePackage:     Rendered thumbnail for [Blueprint /Game/ShipBP.ShipBP]
+[2016.02.09-17.04.01:519][780]OBJ SavePackage: Finished generating thumbnails for package [/Game/ShipBP]
+[2016.02.09-17.04.01:519][780]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ShipBP" FILE="../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/Autosaves/Game/ShipBP_Auto1.uasset" SILENT=false AUTOSAVING=true
+[2016.02.09-17.04.01:546][780]LogSavePackage: Save=22.926857ms
+[2016.02.09-17.04.01:547][780]LogSavePackage: Moving '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/ShipBP_Auto1D57FAD814B20098DC68CAF9DBF202CF6.tmp' to '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/Autosaves/Game/ShipBP_Auto1.uasset'
+[2016.02.09-17.04.01:547][780]LogSavePackage: Total save time: 26.880573ms
+[2016.02.09-17.04.01:547][780]LogSavePackage:Display: Finished SavePackage ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/Autosaves/Game/ShipBP_Auto1.uasset
+[2016.02.09-17.04.01:547][780]LogFileHelpers: Auto-saving content packages took 0.040
+[2016.02.09-17.05.51:947][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.05.51:947][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.05.51:948][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.05.51:948][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.05.51:948][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.05.51:948][536]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_0.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.25:523][483]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/ShipBP" FILE="../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset" SILENT=true
+[2016.02.09-17.08.25:554][483]LogSavePackage: Save=30.093103ms
+[2016.02.09-17.08.25:554][483]LogSavePackage: Moving '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Saved/ShipBPCEED26C4404E3DBB2A3E2181FF3AF595.tmp' to '../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset'
+[2016.02.09-17.08.25:557][483]LogSavePackage: Total save time: 33.104025ms
+[2016.02.09-17.08.25:557][483]LogSavePackage:Display: Finished SavePackage ../../../../../../Users/Sacha Best/Documents/gits/cis599/AsteroidsBP/Content/ShipBP.uasset
+[2016.02.09-17.08.26:296][556]BlueprintLog: New page: Compile ShipBP
+[2016.02.09-17.08.26:337][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:338][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:338][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:338][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:358][556]PIE:Warning: Warning Invalid Simulate Options: Body (ShipBP_C_1.Collider) is set to simulate physics but Collision Enabled is incompatible
+[2016.02.09-17.08.26:360][556]BlueprintEditorCompileResults: Info [0912.66] Compile of ShipBP successful! [in 63 ms]
+[2016.02.09-17.09.15:657][620]LogWindowsTextInputMethodSystem:Display: IME system now deactivated.
+[2016.02.09-17.09.15:843][621]Cmd: QUIT_EDITOR
+[2016.02.09-17.09.15:946][621]LogExit: Preparing to exit.
+[2016.02.09-17.09.17:052][621]LogExit: Editor shut down
+[2016.02.09-17.09.17:053][621]LogExit: Transaction tracking system shut down
+[2016.02.09-17.09.17:053][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024F9B65E200
+[2016.02.09-17.09.17:054][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024F8D32B1A0
+[2016.02.09-17.09.17:054][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024FADBCB880
+[2016.02.09-17.09.17:055][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024F8B9AC360
+[2016.02.09-17.09.17:055][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024F8B9AD120
+[2016.02.09-17.09.17:058][621]LogParticles: Destroying 0 GPU particle simulations for FXSystem 0x0000024FCC35A200
+[2016.02.09-17.09.17:189][621]LogExit: Object subsystem successfully closed.
+[2016.02.09-17.09.17:204][621]LogD3D11RHI: Shutdown
+[2016.02.09-17.09.17:204][621]LogD3D11RHI: CleanupD3DDevice
+[2016.02.09-17.09.17:272][621]LogD3D11RHI: ~FD3D11DynamicRHI
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module ExternalImagePicker (201)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module BlueprintGraph (200)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module CrashTracker (199)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module SceneOutliner (198)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module SuperSearch (197)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module WidgetCarousel (196)
+[2016.02.09-17.09.17:284][621]LogModuleManager: Shutting down and abandoning module AddContentDialog (195)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module EditorWidgets (194)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module CollectionManager (193)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module StatsViewer (192)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module CookingStats (191)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module FoliageEdit (190)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module LandscapeEditor (189)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module ActorPickerMode (188)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module GeometryMode (187)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module TextureAlignMode (186)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module BspMode (185)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module PlacementMode (184)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module AutomationWorker (183)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module CharacterAI (182)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module SmartSnapping (181)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module ViewportSnapping (180)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module LogVisualizer (179)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module GameProjectGeneration (178)
+[2016.02.09-17.09.17:285][621]LogModuleManager: Shutting down and abandoning module IntroTutorials (177)
+[2016.02.09-17.09.17:286][621]LogModuleManager: Shutting down and abandoning module EditorLiveStreaming (176)
+[2016.02.09-17.09.17:286][621]LogModuleManager: Shutting down and abandoning module IOSPlatformEditor (175)
+[2016.02.09-17.09.17:286][621]LogModuleManager: Shutting down and abandoning module HTML5PlatformEditor (174)
+[2016.02.09-17.09.17:286][621]LogModuleManager: Shutting down and abandoning module AndroidDeviceDetection (173)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module AndroidPlatformEditor (172)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module IOSRuntimeSettings (171)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module AndroidRuntimeSettings (170)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module MergeActors (169)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module SizeMap (168)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module TreeMap (167)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module ReferenceViewer (166)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module LocalizationService (165)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module LocalizationDashboard (164)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module HardwareTargeting (163)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module DeviceProfileEditor (162)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module UndoHistory (161)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module GameplayTagsEditor (160)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module UserFeedback (159)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module XmlParser (158)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module Blutility (157)
+[2016.02.09-17.09.18:160][621]LogModuleManager: Shutting down and abandoning module ProjectTargetPlatformEditor (156)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module ProjectSettingsViewer (155)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module InputBindingEditor (154)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module EditorSettingsViewer (153)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module SettingsEditor (152)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module ProjectLauncher (151)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module SessionFrontend (150)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module ProfilerClient (149)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module TargetDeviceServices (148)
+[2016.02.09-17.09.18:161][621]LogModuleManager: Shutting down and abandoning module DeviceManager (147)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module AutomationController (146)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module AutomationWindow (145)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module Layers (144)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module ComponentVisualizers (143)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module DetailCustomizations (142)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module PackagesDialog (141)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module Persona (140)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module Kismet (139)
+[2016.02.09-17.09.18:162][621]LogModuleManager: Shutting down and abandoning module GraphEditor (138)
+[2016.02.09-17.09.18:163][621]LogModuleManager: Shutting down and abandoning module ClassViewer (137)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module Toolbox (136)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module ModuleUI (135)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module MovieSceneTools (134)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module OutputLog (133)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module GammaUI (132)
+[2016.02.09-17.09.18:166][621]LogModuleManager: Shutting down and abandoning module Documentation (131)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module GameLiveStreaming (130)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module StreamingPauseRendering (129)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module AnalyticsET (128)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module Analytics (127)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module AITestSuite (126)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module GameplayDebugger (125)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module AIModule (124)
+[2016.02.09-17.09.18:167][621]LogModuleManager: Shutting down and abandoning module ProfilerService (123)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module TaskGraph (122)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module SlateRemote (121)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module SteamVRController (120)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module SteamVR (119)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponent (118)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module OculusLibrary (117)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module OculusInput (116)
+[2016.02.09-17.09.18:380][621]LogModuleManager: Shutting down and abandoning module LeapMotionController (115)
+[2016.02.09-17.09.18:419][621]LogModuleManager: Shutting down and abandoning module CustomMeshComponent (114)
+[2016.02.09-17.09.18:419][621]LogModuleManager: Shutting down and abandoning module CableComponent (113)
+[2016.02.09-17.09.18:419][621]LogModuleManager: Shutting down and abandoning module ArchVisCharacter (112)
+[2016.02.09-17.09.18:419][621]LogModuleManager: Shutting down and abandoning module MessagingDebugger (111)
+[2016.02.09-17.09.18:419][621]LogModuleManager: Shutting down and abandoning module MediaPlayerEditor (110)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module HTML5Networking (109)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module SpeedTreeImporter (108)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module PluginBrowser (107)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module EpicSurvey (106)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module DesktopPlatform (105)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module VisualStudioSourceCodeAccess (104)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module UObjectPlugin (103)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module SubversionSourceControl (102)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module PerforceSourceControl (101)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module SourceControl (100)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module GitSourceControl (99)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeEditor (98)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module PaperTiledImporter (97)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module PaperSpriteSheetImporter (96)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module MeshPaint (95)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module SlateReflector (94)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module HotReload (93)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module MainFrame (92)
+[2016.02.09-17.09.18:420][621]LogModuleManager: Shutting down and abandoning module LevelEditor (91)
+[2016.02.09-17.09.18:421][621]LogModuleManager: Shutting down and abandoning module DirectoryWatcher (90)
+[2016.02.09-17.09.18:422][621]LogModuleManager: Shutting down and abandoning module AssetRegistry (89)
+[2016.02.09-17.09.18:511][621]LogModuleManager: Shutting down and abandoning module ContentBrowser (88)
+[2016.02.09-17.09.18:511][621]LogModuleManager: Shutting down and abandoning module Paper2DEditor (87)
+[2016.02.09-17.09.18:511][621]LogModuleManager: Shutting down and abandoning module UdpMessaging (86)
+[2016.02.09-17.09.18:613][621]LogModuleManager: Shutting down and abandoning module LightPropagationVolumeRuntime (85)
+[2016.02.09-17.09.18:613][621]LogModuleManager: Shutting down and abandoning module Paper2D (84)
+[2016.02.09-17.09.18:613][621]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (83)
+[2016.02.09-17.09.18:618][621]LogModuleManager: Shutting down and abandoning module Media (82)
+[2016.02.09-17.09.18:618][621]LogModuleManager: Shutting down and abandoning module WmfMedia (81)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (80)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module GameplayTasksEditor (79)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module PropertyEditor (78)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module BehaviorTreeEditor (77)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module FunctionalTesting (76)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (75)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (74)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module MessageLog (73)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module Sequencer (72)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module AssetTools (71)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module UMGEditor (70)
+[2016.02.09-17.09.18:619][621]LogModuleManager: Shutting down and abandoning module UMG (69)
+[2016.02.09-17.09.18:620][621]LogModuleManager: Shutting down and abandoning module Slate (68)
+[2016.02.09-17.09.18:620][621]LogModuleManager: Shutting down and abandoning module EditorStyle (67)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module SessionServices (66)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (65)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (64)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module XAudio2 (63)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module Networking (61)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module Core (60)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module KismetCompiler (59)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module PhysXFormats (58)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module MeshUtilities (57)
+[2016.02.09-17.09.18:624][621]LogModuleManager: Shutting down and abandoning module DerivedDataCache (56)
+[2016.02.09-17.09.18:688][621]LogDerivedDataCache: Shutdown
+[2016.02.09-17.09.18:688][621]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (55)
+[2016.02.09-17.09.18:688][621]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (54)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module MetalShaderFormat (53)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (52)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatPVR (51)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatIntelISPCTexComp (50)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (49)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module ImageWrapper (48)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatASTC (47)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TextureFormatAndroid (46)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (45)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (44)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (43)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module LinuxTargetPlatform (42)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module LinuxServerTargetPlatform (41)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module LinuxNoEditorTargetPlatform (40)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Messaging (39)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module IOSTargetPlatform (38)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module HTML5TargetPlatform (37)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_PVRTCTargetPlatform (36)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_MultiTargetPlatform (35)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_ETC2TargetPlatform (34)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_ETC1TargetPlatform (33)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_DXTTargetPlatform (32)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_ATCTargetPlatform (31)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Android_ASTCTargetPlatform (30)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module AndroidTargetPlatform (29)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (28)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module WindowsServerTargetPlatform (27)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module WindowsNoEditorTargetPlatform (26)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module WindowsClientTargetPlatform (25)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module AllDesktopTargetPlatform (24)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module TargetPlatform (23)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module InputCore (22)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module Settings (21)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module OnlineSubsystem (19)
+[2016.02.09-17.09.18:689][621]LogModuleManager: Shutting down and abandoning module HTTP (18)
+[2016.02.09-17.09.19:690][621]LogModuleManager: Shutting down and abandoning module XMPP (17)
+[2016.02.09-17.09.19:690][621]LogModuleManager: Shutting down and abandoning module OculusRift (16)
+[2016.02.09-17.09.19:690][621]LogHMD: Oculus shutdown.
+[2016.02.09-17.09.19:690][621]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (15)
+[2016.02.09-17.09.19:690][621]LogModuleManager: Shutting down and abandoning module TextureCompressor (14)
+[2016.02.09-17.09.19:690][621]LogModuleManager: Shutting down and abandoning module ShaderCore (13)
+[2016.02.09-17.09.19:691][621]LogModuleManager: Shutting down and abandoning module Landscape (12)
+[2016.02.09-17.09.19:691][621]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (11)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module OpenGLDrv (10)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module D3D11RHI (9)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (8)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module Renderer (7)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module Engine (6)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module CoreUObject (5)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module NetworkFile (4)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module StreamingFile (3)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module SandboxFile (2)
+[2016.02.09-17.09.19:699][621]LogModuleManager: Shutting down and abandoning module PakFile (1)
+[2016.02.09-17.09.19:703][621]LogExit: Exiting.
+[2016.02.09-17.09.19:733][621]Log file closed, 02/09/16 12:09:19

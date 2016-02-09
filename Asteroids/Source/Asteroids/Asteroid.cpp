@@ -23,6 +23,7 @@ AAsteroid::AAsteroid()
 	{
 		AsteroidMaterial = (UMaterial*)Material.Object;
 	}
+/*
 	UStaticMeshComponent* BoxVisual = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VisualRepresentation"));
 	BoxVisual->AttachTo(RootComponent);
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> BoxVisualAsset(TEXT("StaticMesh'/Game/prop_asteroid_01.prop_asteroid_01'"));
@@ -33,7 +34,7 @@ AAsteroid::AAsteroid()
 		BoxVisual->SetWorldScale3D(FVector(0.25f));
 		BoxVisual->SetMaterial(0, (UMaterialInstanceDynamic*)AsteroidMaterial);
 		BoxVisual->SetNotifyRigidBodyCollision(true);
-	}
+	}*/
 
 	static ConstructorHelpers::FObjectFinder<UBlueprint> FindExplosion(TEXT("Blueprint'/Game/Blueprints/ExplosionBP.ExplosionBP'"));
 	if (FindExplosion.Object) {
