@@ -72,6 +72,7 @@ void AAsteroid::onHit(AActor* SelfActor, class AActor* OtherActor, FVector Norma
 			SpawnParams.Instigator = Instigator;
 			World->SpawnActor<AActor>(Explosion, GetActorLocation(), GetActorRotation(), SpawnParams);
 			UGameplayStatics::PlaySoundAtLocation(World, explosionSoundCue, GetActorLocation());
+			HitDelegate.Execute();
 		}
 	}
 }

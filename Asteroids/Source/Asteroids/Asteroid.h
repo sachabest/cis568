@@ -7,6 +7,8 @@
 #include "Bullet.H"
 #include "Asteroid.generated.h"
 
+DECLARE_DYNAMIC_DELEGATE(FDelegate);
+
 UCLASS()
 class ASTEROIDS_API AAsteroid : public AActor
 {
@@ -30,4 +32,7 @@ public:
 	
 	TSubclassOf<class AActor> Explosion;
 	USoundCue* explosionSoundCue;
+
+	UPROPERTY(EditAnywhere)
+	FDelegate HitDelegate;
 };

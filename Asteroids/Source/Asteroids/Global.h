@@ -25,6 +25,10 @@ public:
 
 	TSubclassOf<class AAsteroid> AsteroidClass;
 	void SpawnAsteroids();
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Global") int32 Score;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Global")
+	int32 Score;
+
+	UFUNCTION()
+	void incrementScore();
 	
 };
